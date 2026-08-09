@@ -1,0 +1,8 @@
+D:\New folder\ASP.NET\InventoryManagement\InventoryManagement\obj\Debug\net10.0\InventoryManagement.csproj.AssemblyReference.cache
+D:\New folder\ASP.NET\InventoryManagement\InventoryManagement\obj\Debug\net10.0\rpswa.dswa.cache.json
+D:\New folder\ASP.NET\InventoryManagement\InventoryManagement\obj\Debug\net10.0\InventoryManagement.GeneratedMSBuildEditorConfig.editorconfig
+D:\New folder\ASP.NET\InventoryManagement\InventoryManagement\obj\Debug\net10.0\InventoryManagement.AssemblyInfoInputs.cache
+D:\New folder\ASP.NET\InventoryManagement\InventoryManagement\obj\Debug\net10.0\InventoryManagement.AssemblyInfo.cs
+D:\New folder\ASP.NET\InventoryManagement\InventoryManagement\obj\Debug\net10.0\InventoryManagement.csproj.CoreCompileInputs.cache
+D:\New folder\ASP.NET\InventoryManagement\InventoryManagement\obj\Debug\net10.0\InventoryManagement.MvcApplicationPartsAssemblyInfo.cs
+D:\New folder\ASP.NET\InventoryManagement\InventoryManagement\obj\Debug\net10.0\InventoryManagement.MvcApplicationPartsAssemblyInfo.cache
