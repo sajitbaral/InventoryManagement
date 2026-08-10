@@ -1,11 +1,12 @@
 ﻿using InventoryManagement.Entities.Operation;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace InventoryManagement.Data
 {
     public class OperationDbContext : DbContext
     {
-        public OperationDbContext(DbContextOption<OperationDbContext>options) : base(options) 
+        public OperationDbContext(DbContextOptions<OperationDbContext>options) : base(options) 
         {
             
         }
@@ -20,6 +21,37 @@ namespace InventoryManagement.Data
         public DbSet<Purchase> Purchases { get; set; }
 
         public DbSet<PurchaseItem> PurchaseItems { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Purchase>()
+                .Property(p => p.TotalAmount)
+                .HasPrecision(12, 2);
+
+            modelBuilder.Entity<PurchaseItem>()
+                .Property(p => p.SubTotal)
+                .HasPrecision(12, 2);
+
+            modelBuilder.Entity<PurchaseItem>()
+                .Property(p => p.UnitPrice)
+                .HasPrecision(12, 2);
+
+            modelBuilder.Entity<Sale>()
+                .Property(p=>p.TotalAmount)
+                .HasPrecision(12, 2);
+
+            modelBuilder.Entity<SaleItem>()
+              .Property(p => p.SubTotal)
+              .HasPrecision(12, 2);
+
+            modelBuilder.Entity<SaleItem>()
+                .Property(p => p.UnitPrice)
+                .HasPrecision(12, 2);
+
+
+
+
+        }
 
     }
 }

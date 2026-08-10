@@ -771,7 +771,7 @@
           }
         }
       },
-      "Microsoft.OpenApi/3.9.0": {
+      "Microsoft.OpenApi/2.0.0": {
         "type": "package",
         "compile": {
           "lib/net8.0/Microsoft.OpenApi.dll": {
@@ -2698,10 +2698,10 @@
         "microsoft.identitymodel.tokens.nuspec"
       ]
     },
-    "Microsoft.OpenApi/3.9.0": {
-      "sha512": "2sDK6AFY1L/Xg8JvwlaDoPwzGqCftjUgHG2NhCy8gNV/1v4eXziYoH39e/pwC7oTBJInuYUUJqfkRpIMPQ/Fyw==",
+    "Microsoft.OpenApi/2.0.0": {
+      "sha512": "GGYLfzV/G/ct80OZ45JxnWP7NvMX1BCugn/lX7TH5o0lcVaviavsLMTxmFV2AybXWjbi3h6FF1vgZiTK6PXndw==",
       "type": "package",
-      "path": "microsoft.openapi/3.9.0",
+      "path": "microsoft.openapi/2.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2712,7 +2712,7 @@
         "lib/netstandard2.0/Microsoft.OpenApi.dll",
         "lib/netstandard2.0/Microsoft.OpenApi.pdb",
         "lib/netstandard2.0/Microsoft.OpenApi.xml",
-        "microsoft.openapi.3.9.0.nupkg.sha512",
+        "microsoft.openapi.2.0.0.nupkg.sha512",
         "microsoft.openapi.nuspec"
       ]
     },
@@ -3159,8 +3159,7 @@
       "Microsoft.EntityFrameworkCore >= 10.0.10",
       "Microsoft.EntityFrameworkCore.Design >= 10.0.10",
       "Microsoft.EntityFrameworkCore.SqlServer >= 10.0.10",
-      "Microsoft.EntityFrameworkCore.Tools >= 10.0.10",
-      "Microsoft.OpenApi >= 3.9.0"
+      "Microsoft.EntityFrameworkCore.Tools >= 10.0.10"
     ]
   },
   "packageFolders": {
@@ -3170,11 +3169,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\New folder\\ASP.NET\\InventoryManagement\\InventoryManagement\\InventoryManagement.csproj",
+      "projectUniqueName": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\InventoryManagement.csproj",
       "projectName": "InventoryManagement",
-      "projectPath": "D:\\New folder\\ASP.NET\\InventoryManagement\\InventoryManagement\\InventoryManagement.csproj",
+      "projectPath": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\InventoryManagement.csproj",
       "packagesPath": "C:\\Users\\baral\\.nuget\\packages\\",
-      "outputPath": "D:\\New folder\\ASP.NET\\InventoryManagement\\InventoryManagement\\obj\\",
+      "outputPath": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3238,10 +3237,6 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[10.0.10, )"
-          },
-          "Microsoft.OpenApi": {
-            "target": "Package",
-            "version": "[3.9.0, )"
           }
         },
         "imports": [
@@ -3680,5 +3675,17 @@
         }
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc",
+      "libraryId": "Microsoft.OpenApi",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
 }

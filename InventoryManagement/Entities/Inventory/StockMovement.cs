@@ -2,7 +2,7 @@
 {
     public class StockMovement
     {
-        public int MovementId { get; set; }
+        public int StockMovementId { get; set; }
 
         public int ProductId { get; set; }
 

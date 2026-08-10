@@ -10,7 +10,7 @@
 
         public int Quantity { get; set; }
          
-        public decimal UnitCost { get; set; }
+        public decimal UnitPrice { get; set; }
 
         public decimal SubTotal { get; set; }
     }

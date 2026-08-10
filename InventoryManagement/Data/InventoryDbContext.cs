@@ -14,5 +14,12 @@ namespace InventoryManagement.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Stock> Stocks { get; set; }
         public DbSet<StockMovement> StockMovements { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Product>()
+                .Property(p => p.Price)
+                .HasPrecision(10, 2);
+        }
     }
 }
