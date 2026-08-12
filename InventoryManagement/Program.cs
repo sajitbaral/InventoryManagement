@@ -1,6 +1,7 @@
 using InventoryManagement.Data;
+using InventoryManagement.IService;
+using InventoryManagement.Services;
 using Microsoft.EntityFrameworkCore;
-using InventoryManagement.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,10 @@ builder.Services.AddDbContext<OperationDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("OperationDb")
     ));
+
+builder.Services.AddScoped<IAuthService, AuthService>();
+
+builder.Services.AddScoped<IProductService, ProductService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi

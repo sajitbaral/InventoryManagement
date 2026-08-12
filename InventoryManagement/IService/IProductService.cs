@@ -1,0 +1,15 @@
+﻿using InventoryManagement.Dto;
+using InventoryManagement.Entities.Inventory;
+
+namespace InventoryManagement.IService
+{
+    public interface IProductService
+    {
+        Task<List<ProductResponseDto>> GetProductsAsync();
+        Task<ProductResponseDto?> GetProductByIdAsync(int id);      /*allowed to be null if not found(?)*/
+        Task<ProductResponseDto> CreateProductAsync(CreateProductDto Dto);
+        Task<bool> UpdateProductAsync(int id, ProductUpdateDto Dto);    /*allowed to be false if not found. It is like if product found update and if not then return false*/
+        Task<bool> DeleteProductAsync(int id);
+
+    }
+}

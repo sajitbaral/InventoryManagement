@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "D:\\Important\\ASP.NET\\InventoryManagement\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|d:\\important\\asp.net\\inventorymanagement\\inventorymanagement\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|solutionrelative:inventorymanagement\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|d:\\important\\asp.net\\inventorymanagement\\inventorymanagement\\iservice\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|solutionrelative:inventorymanagement\\iservice\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|d:\\important\\asp.net\\inventorymanagement\\inventorymanagement\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|solutionrelative:inventorymanagement\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|d:\\important\\asp.net\\inventorymanagement\\inventorymanagement\\data\\operationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|solutionrelative:inventorymanagement\\data\\operationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -70,24 +82,63 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\IService\\IAuthService.cs",
+              "RelativeDocumentMoniker": "InventoryManagement\\IService\\IAuthService.cs",
+              "ToolTip": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\IService\\IAuthService.cs",
+              "RelativeToolTip": "InventoryManagement\\IService\\IAuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-10T08:17:23.672Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "InventoryManagement\\Services\\AuthService.cs",
+              "ToolTip": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Services\\AuthService.cs",
+              "RelativeToolTip": "InventoryManagement\\Services\\AuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-10T08:16:12.613Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "InventoryManagement\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "InventoryManagement\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-10T07:54:16.994Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "OperationDbContext.cs",
               "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Data\\OperationDbContext.cs",
               "RelativeDocumentMoniker": "InventoryManagement\\Data\\OperationDbContext.cs",
               "ToolTip": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Data\\OperationDbContext.cs",
               "RelativeToolTip": "InventoryManagement\\Data\\OperationDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-09T15:53:32.314Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "InventoryDbContext.cs",
               "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Data\\InventoryDbContext.cs",
               "RelativeDocumentMoniker": "InventoryManagement\\Data\\InventoryDbContext.cs",
@@ -100,7 +151,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "Purchase.cs",
               "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Entities\\Operation\\Purchase.cs",
               "RelativeDocumentMoniker": "InventoryManagement\\Entities\\Operation\\Purchase.cs",
@@ -113,7 +164,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "PurchaseItem.cs",
               "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Entities\\Operation\\PurchaseItem.cs",
               "RelativeDocumentMoniker": "InventoryManagement\\Entities\\Operation\\PurchaseItem.cs",
@@ -126,7 +177,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "Sale.cs",
               "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Entities\\Operation\\Sale.cs",
               "RelativeDocumentMoniker": "InventoryManagement\\Entities\\Operation\\Sale.cs",
@@ -139,7 +190,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "SaleItem.cs",
               "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Entities\\Operation\\SaleItem.cs",
               "RelativeDocumentMoniker": "InventoryManagement\\Entities\\Operation\\SaleItem.cs",
@@ -152,7 +203,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "StockMovement.cs",
               "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Entities\\Inventory\\StockMovement.cs",
               "RelativeDocumentMoniker": "InventoryManagement\\Entities\\Inventory\\StockMovement.cs",
@@ -165,7 +216,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "Customer.cs",
               "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Entities\\Operation\\Customer.cs",
               "RelativeDocumentMoniker": "InventoryManagement\\Entities\\Operation\\Customer.cs",
@@ -178,7 +229,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\appsettings.json",
               "RelativeDocumentMoniker": "InventoryManagement\\appsettings.json",
@@ -191,7 +242,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Program.cs",
               "RelativeDocumentMoniker": "InventoryManagement\\Program.cs",
@@ -204,7 +255,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "InventoryManagement",
               "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\InventoryManagement.csproj",
               "RelativeDocumentMoniker": "InventoryManagement\\InventoryManagement.csproj",
@@ -217,7 +268,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "Supplier.cs",
               "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Entities\\Operation\\Supplier.cs",
               "RelativeDocumentMoniker": "InventoryManagement\\Entities\\Operation\\Supplier.cs",
@@ -230,7 +281,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "Product.cs",
               "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Entities\\Inventory\\Product.cs",
               "RelativeDocumentMoniker": "InventoryManagement\\Entities\\Inventory\\Product.cs",
@@ -243,7 +294,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "Stock.cs",
               "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Entities\\Inventory\\Stock.cs",
               "RelativeDocumentMoniker": "InventoryManagement\\Entities\\Inventory\\Stock.cs",
@@ -256,7 +307,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "Category.cs",
               "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Entities\\Inventory\\Category.cs",
               "RelativeDocumentMoniker": "InventoryManagement\\Entities\\Inventory\\Category.cs",
