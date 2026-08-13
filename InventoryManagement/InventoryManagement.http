@@ -1,6 +1,29 @@
 @InventoryManagement_HostAddress = http://localhost:5054
 
-GET {{InventoryManagement_HostAddress}}/weatherforecast/
+GET {{InventoryManagement_HostAddress}}/api/Product/2
 Accept: application/json
 
 ###
+
+POST https://localhost:7004/api/Product
+Content-Type: application/json
+
+{
+    "name": "Keyboard",
+    "price": 1500,
+    "categoryId": 1
+}
+
+###
+
+DELETE https://localhost:7004/api/Product/1
+
+###
+POST https://localhost:7004/api/Product
+Content-Type: application/json
+
+{
+    "name": "Keyboard",
+    "price": 1500,
+    "categoryId": 1
+}

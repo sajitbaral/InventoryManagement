@@ -3,32 +3,44 @@
   "WorkspaceRootPath": "D:\\Important\\ASP.NET\\InventoryManagement\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|d:\\important\\asp.net\\inventorymanagement\\inventorymanagement\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|solutionrelative:inventorymanagement\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|d:\\important\\asp.net\\inventorymanagement\\inventorymanagement\\inventorymanagement.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|solutionrelative:inventorymanagement\\inventorymanagement.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|d:\\important\\asp.net\\inventorymanagement\\inventorymanagement\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|solutionrelative:inventorymanagement\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|d:\\important\\asp.net\\inventorymanagement\\inventorymanagement\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|solutionrelative:inventorymanagement\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|d:\\important\\asp.net\\inventorymanagement\\inventorymanagement\\dto\\productupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|solutionrelative:inventorymanagement\\dto\\productupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|d:\\important\\asp.net\\inventorymanagement\\inventorymanagement\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|solutionrelative:inventorymanagement\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|d:\\important\\asp.net\\inventorymanagement\\inventorymanagement\\iservice\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|solutionrelative:inventorymanagement\\iservice\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|d:\\important\\asp.net\\inventorymanagement\\inventorymanagement\\iservice\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|solutionrelative:inventorymanagement\\iservice\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|d:\\important\\asp.net\\inventorymanagement\\inventorymanagement\\dto\\productresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|solutionrelative:inventorymanagement\\dto\\productresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|d:\\important\\asp.net\\inventorymanagement\\inventorymanagement\\dto\\createproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|solutionrelative:inventorymanagement\\dto\\createproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|d:\\important\\asp.net\\inventorymanagement\\inventorymanagement\\dto\\productupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|solutionrelative:inventorymanagement\\dto\\productupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|d:\\important\\asp.net\\inventorymanagement\\inventorymanagement\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|solutionrelative:inventorymanagement\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|d:\\important\\asp.net\\inventorymanagement\\inventorymanagement\\dto\\productresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|solutionrelative:inventorymanagement\\dto\\productresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|d:\\important\\asp.net\\inventorymanagement\\inventorymanagement\\iservice\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|solutionrelative:inventorymanagement\\iservice\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|d:\\important\\asp.net\\inventorymanagement\\inventorymanagement\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -61,10 +73,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|d:\\important\\asp.net\\inventorymanagement\\inventorymanagement\\dto\\supplierdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|solutionrelative:inventorymanagement\\dto\\supplierdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|d:\\important\\asp.net\\inventorymanagement\\inventorymanagement\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{55461311-3C7B-FF92-5080-2DFE2F541306}|InventoryManagement\\InventoryManagement.csproj|solutionrelative:inventorymanagement\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -74,24 +82,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProductService.cs",
-              "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Services\\ProductService.cs",
-              "RelativeDocumentMoniker": "InventoryManagement\\Services\\ProductService.cs",
-              "ToolTip": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Services\\ProductService.cs",
-              "RelativeToolTip": "InventoryManagement\\Services\\ProductService.cs",
-              "ViewState": "AgIAAGAAAAAAAAAAAAAAACsAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-12T16:01:33.173Z",
+              "DocumentIndex": 0,
+              "Title": "InventoryManagement.http",
+              "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\InventoryManagement.http",
+              "RelativeDocumentMoniker": "InventoryManagement\\InventoryManagement.http",
+              "ToolTip": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\InventoryManagement.http",
+              "RelativeToolTip": "InventoryManagement\\InventoryManagement.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2026-08-13T15:25:21.788Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "InventoryManagement\\Controllers\\ProductController.cs",
+              "ToolTip": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "InventoryManagement\\Controllers\\ProductController.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAswDIAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-13T12:22:25.636Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "InventoryManagement\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "InventoryManagement\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-10T07:54:16.994Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "IProductService.cs",
               "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\IService\\IProductService.cs",
               "RelativeDocumentMoniker": "InventoryManagement\\IService\\IProductService.cs",
@@ -104,7 +138,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Services\\ProductService.cs",
+              "RelativeDocumentMoniker": "InventoryManagement\\Services\\ProductService.cs",
+              "ToolTip": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Services\\ProductService.cs",
+              "RelativeToolTip": "InventoryManagement\\Services\\ProductService.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAowCsAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-12T16:01:33.173Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "ProductUpdateDto.cs",
               "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Dto\\ProductUpdateDto.cs",
               "RelativeDocumentMoniker": "InventoryManagement\\Dto\\ProductUpdateDto.cs",
@@ -118,38 +165,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "CreateProductDto.cs",
-              "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Dto\\CreateProductDto.cs",
-              "RelativeDocumentMoniker": "InventoryManagement\\Dto\\CreateProductDto.cs",
-              "ToolTip": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Dto\\CreateProductDto.cs",
-              "RelativeToolTip": "InventoryManagement\\Dto\\CreateProductDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-12T07:00:11.561Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IAuthService.cs",
-              "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\IService\\IAuthService.cs",
-              "RelativeDocumentMoniker": "InventoryManagement\\IService\\IAuthService.cs",
-              "ToolTip": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\IService\\IAuthService.cs",
-              "RelativeToolTip": "InventoryManagement\\IService\\IAuthService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-10T08:17:23.672Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Program.cs",
               "RelativeDocumentMoniker": "InventoryManagement\\Program.cs",
               "ToolTip": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Program.cs",
               "RelativeToolTip": "InventoryManagement\\Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-12T14:31:02.232Z",
               "EditorCaption": ""
@@ -170,6 +191,31 @@
             {
               "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "CreateProductDto.cs",
+              "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Dto\\CreateProductDto.cs",
+              "RelativeDocumentMoniker": "InventoryManagement\\Dto\\CreateProductDto.cs",
+              "ToolTip": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Dto\\CreateProductDto.cs",
+              "RelativeToolTip": "InventoryManagement\\Dto\\CreateProductDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-12T07:00:11.561Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\IService\\IAuthService.cs",
+              "RelativeDocumentMoniker": "InventoryManagement\\IService\\IAuthService.cs",
+              "ToolTip": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\IService\\IAuthService.cs",
+              "RelativeToolTip": "InventoryManagement\\IService\\IAuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-10T08:17:23.672Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "AuthService.cs",
               "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Services\\AuthService.cs",
               "RelativeDocumentMoniker": "InventoryManagement\\Services\\AuthService.cs",
@@ -177,12 +223,11 @@
               "RelativeToolTip": "InventoryManagement\\Services\\AuthService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-10T08:16:12.613Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-10T08:16:12.613Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "SaleDto.cs",
               "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Dto\\SaleDto.cs",
               "RelativeDocumentMoniker": "InventoryManagement\\Dto\\SaleDto.cs",
@@ -190,12 +235,11 @@
               "RelativeToolTip": "InventoryManagement\\Dto\\SaleDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-12T07:14:51.152Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-12T07:14:51.152Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "PurchaseDto.cs",
               "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Dto\\PurchaseDto.cs",
               "RelativeDocumentMoniker": "InventoryManagement\\Dto\\PurchaseDto.cs",
@@ -203,12 +247,11 @@
               "RelativeToolTip": "InventoryManagement\\Dto\\PurchaseDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-12T07:15:49.365Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-12T07:15:49.365Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "PurchaseItemDto.cs",
               "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Dto\\PurchaseItemDto.cs",
               "RelativeDocumentMoniker": "InventoryManagement\\Dto\\PurchaseItemDto.cs",
@@ -216,12 +259,11 @@
               "RelativeToolTip": "InventoryManagement\\Dto\\PurchaseItemDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-12T07:16:17.659Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-12T07:16:17.659Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "StockMovementDto.cs",
               "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Dto\\StockMovementDto.cs",
               "RelativeDocumentMoniker": "InventoryManagement\\Dto\\StockMovementDto.cs",
@@ -229,12 +271,11 @@
               "RelativeToolTip": "InventoryManagement\\Dto\\StockMovementDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-12T07:16:49.468Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-12T07:16:49.468Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "SaleItemDto.cs",
               "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Dto\\SaleItemDto.cs",
               "RelativeDocumentMoniker": "InventoryManagement\\Dto\\SaleItemDto.cs",
@@ -242,12 +283,11 @@
               "RelativeToolTip": "InventoryManagement\\Dto\\SaleItemDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-12T07:15:04.957Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-12T07:15:04.957Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "CustomerDto.cs",
               "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Dto\\CustomerDto.cs",
               "RelativeDocumentMoniker": "InventoryManagement\\Dto\\CustomerDto.cs",
@@ -255,12 +295,11 @@
               "RelativeToolTip": "InventoryManagement\\Dto\\CustomerDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-12T07:13:21.152Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-12T07:13:21.152Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "SupplierDto.cs",
               "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Dto\\SupplierDto.cs",
               "RelativeDocumentMoniker": "InventoryManagement\\Dto\\SupplierDto.cs",
@@ -268,21 +307,7 @@
               "RelativeToolTip": "InventoryManagement\\Dto\\SupplierDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-12T07:13:39.244Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "InventoryManagement\\Controllers\\AuthController.cs",
-              "ToolTip": "D:\\Important\\ASP.NET\\InventoryManagement\\InventoryManagement\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "InventoryManagement\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-10T07:54:16.994Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-12T07:13:39.244Z"
             }
           ]
         }
