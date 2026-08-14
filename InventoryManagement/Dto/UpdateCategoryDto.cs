@@ -1,12 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace InventoryManagement.Entities.Inventory
+namespace InventoryManagement.Dto
 {
-    public class Category
+    public class UpdateCategoryDto
     {
-
-        public int CategoryId { get; set; }
-
         [Required]
         public string Name { get; set; } = string.Empty;
 

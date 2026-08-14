@@ -24,9 +24,17 @@ namespace InventoryManagement.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Purchase>()
                 .Property(p => p.TotalAmount)
                 .HasPrecision(12, 2);
+
+            modelBuilder.Entity<Purchase>()
+                .HasOne(p => p.Supplier)
+                .WithMany()
+                .HasForeignKey(p => p.SupplierId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<PurchaseItem>()
                 .Property(p => p.SubTotal)
@@ -36,17 +44,37 @@ namespace InventoryManagement.Data
                 .Property(p => p.UnitPrice)
                 .HasPrecision(12, 2);
 
+            modelBuilder.Entity<PurchaseItem>()
+                .HasOne(pi => pi.Purchase)
+                .WithMany()
+                .HasForeignKey(pi => pi.PurchaseId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             modelBuilder.Entity<Sale>()
                 .Property(p=>p.TotalAmount)
                 .HasPrecision(12, 2);
 
+            modelBuilder.Entity<Sale>()
+                .HasOne(s => s.Customer)
+                .WithMany()
+                .HasForeignKey(s => s.CustomerId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+
             modelBuilder.Entity<SaleItem>()
-              .Property(p => p.SubTotal)
-              .HasPrecision(12, 2);
+                .Property(p => p.SubTotal)
+                .HasPrecision(12, 2);
 
             modelBuilder.Entity<SaleItem>()
                 .Property(p => p.UnitPrice)
                 .HasPrecision(12, 2);
+
+            modelBuilder.Entity<SaleItem>()
+                .HasOne(si => si.Sale)
+                .WithMany()
+                .HasForeignKey(si => si.SaleId)
+                .OnDelete(DeleteBehavior.Restrict);
+
 
 
 

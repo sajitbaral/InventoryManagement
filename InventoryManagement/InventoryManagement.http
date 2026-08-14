@@ -27,3 +27,32 @@ Content-Type: application/json
     "price": 1500,
     "categoryId": 1
 }
+
+#####
+
+GET https://localhost:7004/api/Category/1
+Accept: application/json
+
+#####
+
+POST https://localhost:7004/api/Category
+Content-Type: application/json
+
+{
+    "name": "Electronics",
+    "description": "This is electronics category."
+}
+
+#####
+
+PUT https://localhost:7004/api/Category/1
+Content-Type: application/json
+
+{
+  "name": "Electronic Devices",
+  "description": "Updated category description"
+}
+
+#####\
+
+DELETE https://localhost:7004/api/Category/1
