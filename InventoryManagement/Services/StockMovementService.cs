@@ -16,6 +16,11 @@ namespace InventoryManagement.Services
 
         public async Task<StockMovementResponseDto> CreateStockMovementAsync(CreateStockMovementDto dto)
         {
+            if(dto.Quantity<= 0)
+            {
+                throw new Exception("Quantity must be greater than 0");
+            }
+
             var productExists = await _context.Products
                 .AnyAsync(p => p.ProductId == dto.ProductId);
 
@@ -39,6 +44,11 @@ namespace InventoryManagement.Services
                     break;
 
                 case MovementType.Sale:
+
+                    if (dto.Quantity > stock.Quantity)
+                    {
+                        throw new Exception("Insufficient stock.");
+                    }
                     stock.Quantity -= dto.Quantity; /* stock.Quantity = stock.Quantity - dto.Quantity */
                     break;
 

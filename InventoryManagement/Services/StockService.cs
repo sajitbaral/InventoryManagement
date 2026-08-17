@@ -27,7 +27,7 @@ namespace InventoryManagement.Services
             var stockExists = await _context.Stocks
                 .AnyAsync(s=> s.ProductId == dto.ProductId);
 
-            if (!stockExists)
+            if (stockExists)
                 throw new Exception("Stock for this product already exists.");
 
             var stock = new Stock
