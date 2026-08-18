@@ -8,7 +8,7 @@ namespace InventoryManagement.Data
     {
         public OperationDbContext(DbContextOptions<OperationDbContext>options) : base(options) 
         {
-            
+           
         }
         public DbSet<Customer> Customers { get; set; }
 
