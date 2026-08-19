@@ -22,10 +22,10 @@ namespace InventoryManagement.Controllers
             return Ok(categories);
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<CategoryResponseDto>> GetCategory(int id)
+        [HttpGet("{categoryId}")]
+        public async Task<ActionResult<CategoryResponseDto>> GetCategory(int categoryId)
         {
-            var category = await _categoryService.GetCategoryByIdAsync(id);
+            var category = await _categoryService.GetCategoryByIdAsync(categoryId);
             if (category == null)
             {
                 return NotFound();
@@ -40,10 +40,10 @@ namespace InventoryManagement.Controllers
             return Ok(category);
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateCategory(int id, UpdateCategoryDto dto)
+        [HttpPut("{categoryId}")]
+        public async Task<IActionResult> UpdateCategory(int categoryId, UpdateCategoryDto dto)
         {
-            var updated = await _categoryService.UpdateCategoryAsync(id, dto);
+            var updated = await _categoryService.UpdateCategoryAsync(categoryId, dto);
             if (!updated)
             {
                 return NotFound();
@@ -51,10 +51,10 @@ namespace InventoryManagement.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCategory(int id)
+        [HttpDelete("{categoryId}")]
+        public async Task<IActionResult> DeleteCategory(int categoryId)
         {
-            var deleted = await _categoryService.DeleteCategoryAsync(id);
+            var deleted = await _categoryService.DeleteCategoryAsync(categoryId);
             if (!deleted)
             {
                 return NotFound();

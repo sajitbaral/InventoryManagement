@@ -32,10 +32,10 @@ namespace InventoryManagement.Controllers
             return Ok(customers);
         }
 
-        [HttpPost]
-        public async Task<ActionResult<CustomerResponseDto>> GetCustomerById(int id)
+        [HttpGet("{customerId}")]
+        public async Task<ActionResult<CustomerResponseDto>> GetCustomerById(int customerId)
         {
-            var customer = await _customerService.GetCustomerByIdAsync(id);
+            var customer = await _customerService.GetCustomerByIdAsync(customerId);
 
             if(customer == null)
             {

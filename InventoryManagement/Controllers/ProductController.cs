@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using InventoryManagement.Dto;
+using InventoryManagement.Entities.Inventory;
 using InventoryManagement.IService;
-using InventoryManagement.Dto;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace InventoryManagement.Controllers
 {
@@ -23,10 +24,10 @@ namespace InventoryManagement.Controllers
             return Ok(products);
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<ProductResponseDto>> GetProduct(int id)
+        [HttpGet("{productId}")]
+        public async Task<ActionResult<ProductResponseDto>> GetProductById(int productId)
         {
-            var product = await _productService.GetProductByIdAsync(id);
+            var product = await _productService.GetProductByIdAsync(productId);
 
             if(product == null)
             {
@@ -42,11 +43,11 @@ namespace InventoryManagement.Controllers
             return Ok(product);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{productId}")]
 
-        public async Task<IActionResult> UpdateProduct(int id, ProductUpdateDto dto)    /* IActionResult allows us to return different HTTP responses as update is either true or false. hence if 2 responses are expected, then IActionresult */
+        public async Task<IActionResult> UpdateProduct(int productId, ProductUpdateDto dto)    /* IActionResult allows us to return different HTTP responses as update is either true or false. hence if 2 responses are expected, then IActionresult */
         {
-            var updated = await _productService.UpdateProductAsync(id, dto);
+            var updated = await _productService.UpdateProductAsync(productId, dto);
             if (!updated)               /* Since UpdateproductAsync is bool , updated is also bool. So If the update was not successful, then this prints */
             {
                 return NotFound();
@@ -55,10 +56,10 @@ namespace InventoryManagement.Controllers
             return NoContent();         /* NoContent() means "The update was successful, and there's no response body that I need to send back. This means, Product found → update → save → 204"*/
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteProduct(int id)
+        [HttpDelete("{productId}")]
+        public async Task<IActionResult> DeleteProduct(int productId)
         {
-            var deleted = await _productService.DeleteProductAsync(id);
+            var deleted = await _productService.DeleteProductAsync(productId);
 
             if (!deleted)
             {

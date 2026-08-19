@@ -7,8 +7,8 @@ namespace InventoryManagement.IService
     {
         Task<StockResponseDto> CreateStockAsync(CreateStockDto createStockDto);
         Task<List<StockResponseDto>> GetStocksAsync();
-        Task<StockResponseDto?> GetStockByIdAsync(int id);
-        Task<bool> UpdateStockAsync(int id, UpdateStockDto dto);
-        Task<bool> DeleteStockAsync(int id);
+        Task<StockResponseDto?> GetStockByIdAsync(int stockId);
+        Task<bool> UpdateStockAsync(int stockId, UpdateStockDto dto);
+        Task<bool> DeleteStockAsync(int stockId);
     }
 }

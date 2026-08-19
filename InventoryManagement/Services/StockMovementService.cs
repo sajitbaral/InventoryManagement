@@ -114,10 +114,10 @@ namespace InventoryManagement.Services
 
         }
 
-        public async Task<StockMovementResponseDto?>GetStockMovementByIdAsync(int id)
+        public async Task<StockMovementResponseDto?>GetStockMovementByIdAsync(int stockmovementId)
         {
             var movement= await _context.StockMovements
-                .Where(m=>m.StockMovementId==id)
+                .Where(m=>m.StockMovementId==stockmovementId)
                 .Select(m=>new StockMovementResponseDto
                 {
                     StockMovementId = m.StockMovementId,

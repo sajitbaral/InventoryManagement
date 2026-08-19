@@ -6,7 +6,7 @@ namespace InventoryManagement.IService
     {
         Task<CustomerResponseDto> CreateCustomerAsync(CreateCustomerDto dto);
         Task<List<CustomerResponseDto>> GetCustomersAsync();
-        Task<CustomerResponseDto> GetCustomerByIdAsync(int id);
+        Task<CustomerResponseDto?> GetCustomerByIdAsync(int customerId);
 
     }
 }

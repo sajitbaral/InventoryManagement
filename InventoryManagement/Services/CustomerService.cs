@@ -56,10 +56,10 @@ namespace InventoryManagement.Services
             return customers;
         }
 
-        public async Task<CustomerResponseDto>GetCustomerByIdAsync(int id)
+        public async Task<CustomerResponseDto?>GetCustomerByIdAsync(int customerId)
         {
             var customer = await _context.Customers
-                .Where(c => c.CustomerId == id)
+                .Where(c => c.CustomerId == customerId)
                 .Select(c => new CustomerResponseDto
                 {
                     CustomerId = c.CustomerId,

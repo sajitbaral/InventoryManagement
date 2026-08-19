@@ -24,10 +24,10 @@ namespace InventoryManagement.Controllers
             return Ok(movements);
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<StockMovementResponseDto>> GetStockById(int id)
+        [HttpGet("{stockMovementId}")]
+        public async Task<ActionResult<StockMovementResponseDto>> GetStockById(int stockMovementId)
         {
-            var movement = await _stockMovementService.GetStockMovementByIdAsync(id);
+            var movement = await _stockMovementService.GetStockMovementByIdAsync(stockMovementId);
 
             if (movement == null)
             {

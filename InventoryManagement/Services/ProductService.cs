@@ -36,10 +36,10 @@ namespace InventoryManagement.Services
                 }).ToListAsync();
         }
 
-        public async Task<ProductResponseDto?> GetProductByIdAsync(int id)
+        public async Task<ProductResponseDto?> GetProductByIdAsync(int productId)
         {
             return await _context.Products
-                  .Where(p => p.ProductId == id)
+                  .Where(p => p.ProductId == productId)
                   .Select(p => new ProductResponseDto
                   {
                       ProductId = p.ProductId,
@@ -72,10 +72,10 @@ namespace InventoryManagement.Services
             };
 
         }
-        public async Task <bool> UpdateProductAsync(int id, ProductUpdateDto dto)
+        public async Task <bool> UpdateProductAsync(int productId, ProductUpdateDto dto)
         {
             var product = await _context.Products
-                .FirstOrDefaultAsync(p => p.ProductId == id);
+                .FirstOrDefaultAsync(p => p.ProductId == productId);
 
             if (product == null)
             {
@@ -88,10 +88,10 @@ namespace InventoryManagement.Services
             return true;        /* Product updated successfully. */
         }
 
-        public async Task<bool> DeleteProductAsync(int id)
+        public async Task<bool> DeleteProductAsync(int productId)
         {
             var product = await _context.Products
-                .FirstOrDefaultAsync(p => p.ProductId == id);
+                .FirstOrDefaultAsync(p => p.ProductId == productId);
             if (product == null)
             {
                 return false;       /* Product not found. */

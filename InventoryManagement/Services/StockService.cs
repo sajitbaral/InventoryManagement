@@ -66,10 +66,10 @@ namespace InventoryManagement.Services
             return stocks;
         }
 
-        public async Task<StockResponseDto?> GetStockByIdAsync(int id)
+        public async Task<StockResponseDto?> GetStockByIdAsync(int stockId)
         {
             var stock = await _context.Stocks
-                .Where(s => s.StockId == id)
+                .Where(s => s.StockId == stockId)
                 .Select(s => new StockResponseDto
                  {
                      StockId = s.StockId,
@@ -83,10 +83,10 @@ namespace InventoryManagement.Services
 
 
         }
-        public async Task<bool> UpdateStockAsync(int id, UpdateStockDto dto)
+        public async Task<bool> UpdateStockAsync(int stockId, UpdateStockDto dto)
         {
             var stock = await _context.Stocks
-                .FirstOrDefaultAsync(s => s.StockId == id);
+                .FirstOrDefaultAsync(s => s.StockId == stockId);
 
             if (stock == null)
                 return false;
@@ -99,10 +99,10 @@ namespace InventoryManagement.Services
             return true;
         }
 
-        public async Task<bool> DeleteStockAsync(int id)
+        public async Task<bool> DeleteStockAsync(int stockId)
         {
             var stock = await _context.Stocks
-                .FirstOrDefaultAsync(s => s.StockId == id);
+                .FirstOrDefaultAsync(s => s.StockId == stockId);
 
             if (stock == null)
                 return false;

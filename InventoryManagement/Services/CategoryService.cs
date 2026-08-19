@@ -26,10 +26,10 @@ namespace InventoryManagement.Services
                 .ToListAsync();
         }
 
-        public async Task<CategoryResponseDto?> GetCategoryByIdAsync(int id)
+        public async Task<CategoryResponseDto?> GetCategoryByIdAsync(int categoryId)
         {
             return await _context.Categories
-                .Where(c=> c.CategoryId==id)
+                .Where(c=> c.CategoryId==categoryId)
                 .Select(c=> new CategoryResponseDto
                 {
                     CategoryId = c.CategoryId,
@@ -60,10 +60,10 @@ namespace InventoryManagement.Services
 
         }
 
-        public async Task<bool> UpdateCategoryAsync(int id, UpdateCategoryDto dto)
+        public async Task<bool> UpdateCategoryAsync(int categoryId, UpdateCategoryDto dto)
         {
             var category = await _context.Categories
-                .FirstOrDefaultAsync(c => c.CategoryId == id);
+                .FirstOrDefaultAsync(c => c.CategoryId == categoryId);
 
             if (category == null)
             {
@@ -78,10 +78,10 @@ namespace InventoryManagement.Services
             return true;
         }
 
-        public async Task<bool> DeleteCategoryAsync(int id)
+        public async Task<bool> DeleteCategoryAsync(int categoryId)
         {
             var category = await _context.Categories
-                .FirstOrDefaultAsync(c => c.CategoryId == id);
+                .FirstOrDefaultAsync(c => c.CategoryId == categoryId);
 
             if(category == null)
             {

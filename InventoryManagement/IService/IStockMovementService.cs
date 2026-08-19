@@ -6,7 +6,7 @@ namespace InventoryManagement.IService
     {
         Task<StockMovementResponseDto> CreateStockMovementAsync(CreateStockMovementDto dto);
         Task <List<StockMovementResponseDto>> GetStockMovementsAsync();
-        Task<StockMovementResponseDto> GetStockMovementByIdAsync(int id);
+        Task<StockMovementResponseDto?> GetStockMovementByIdAsync(int stockmovementId);
 
     }
 }

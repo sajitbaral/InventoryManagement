@@ -23,10 +23,10 @@ namespace InventoryManagement.Controllers
             return Ok(stocks);
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<StockResponseDto>> GetStockById(int id)
+        [HttpGet("{stockId}")]
+        public async Task<ActionResult<StockResponseDto>> GetStockById(int stockId)
         {
-            var stock = await _stockService.GetStockByIdAsync(id);
+            var stock = await _stockService.GetStockByIdAsync(stockId);
 
             if (stock == null)
                 return NotFound();
@@ -42,10 +42,10 @@ namespace InventoryManagement.Controllers
             return Ok(stock);
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateStock(int id, UpdateStockDto dto)
+        [HttpPut("{stockId}")]
+        public async Task<IActionResult> UpdateStock(int stockId, UpdateStockDto dto)
         {
-            var updated = await _stockService.UpdateStockAsync(id, dto);
+            var updated = await _stockService.UpdateStockAsync(stockId, dto);
 
             if (!updated)
                 return NotFound();
@@ -53,10 +53,10 @@ namespace InventoryManagement.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteStock(int id)
+        [HttpDelete("{stockId}")]
+        public async Task<IActionResult> DeleteStock(int stockId)
         {
-            var deleted = await _stockService.DeleteStockAsync(id);
+            var deleted = await _stockService.DeleteStockAsync(stockId);
 
             if (!deleted)
                 return NotFound();
