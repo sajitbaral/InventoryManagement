@@ -46,7 +46,7 @@ namespace InventoryManagement.Data
 
             modelBuilder.Entity<PurchaseItem>()
                 .HasOne(pi => pi.Purchase)
-                .WithMany()
+                .WithMany(p => p.PurchaseItems)
                 .HasForeignKey(pi => pi.PurchaseId)
                 .OnDelete(DeleteBehavior.Restrict);
 
