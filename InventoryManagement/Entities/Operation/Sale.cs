@@ -16,5 +16,7 @@ namespace InventoryManagement.Entities.Operation
 
         [Required]
         public decimal TotalAmount { get; set; }
+
+        public List<SaleItem> SaleItems { get; set; } = new();
     }
 }

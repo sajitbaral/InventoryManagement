@@ -71,7 +71,7 @@ namespace InventoryManagement.Data
 
             modelBuilder.Entity<SaleItem>()
                 .HasOne(si => si.Sale)
-                .WithMany()
+                .WithMany(s => s.SaleItems)
                 .HasForeignKey(si => si.SaleId)
                 .OnDelete(DeleteBehavior.Restrict);
 

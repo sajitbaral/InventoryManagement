@@ -1,4 +1,5 @@
 ﻿using InventoryManagement.Dto;
+using InventoryManagement.Entities.Inventory;
 
 
 namespace InventoryManagement.IService
@@ -10,5 +11,8 @@ namespace InventoryManagement.IService
         Task<StockResponseDto?> GetStockByIdAsync(int stockId);
         Task<bool> UpdateStockAsync(int stockId, UpdateStockDto dto);
         Task<bool> DeleteStockAsync(int stockId);
+
+   
+
     }
 }
