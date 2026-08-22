@@ -14,7 +14,7 @@ namespace InventoryManagement.Services
             _context = context;
         }
 
-        public async Task<StockMovementResponseDto> CreateStockMovementAsync(CreateStockMovementDto dto)
+        public async Task CreateStockMovementAsync(CreateStockMovementDto dto)
         {
             if(dto.Quantity<= 0)
             {
@@ -29,46 +29,23 @@ namespace InventoryManagement.Services
                 throw new Exception("Product not found.");
             }
 
-            var stock = await _context.Stocks
-                .FirstOrDefaultAsync(s=> s.ProductId == dto.ProductId);
-
-            if (stock == null)
+            // Adjustment movements must specify Increase or Decrease
+            if (dto.MovementType == MovementType.Adjustment &&
+                dto.AdjustmentType == null)
             {
-                throw new Exception("Stock for this product not found.");
+                throw new Exception(
+                    "Adjustment type must be specified for adjustment movements.");
             }
 
-            switch (dto.MovementType)
+            // Purchase and Sale movements should not have an adjustment type
+            if (dto.MovementType != MovementType.Adjustment &&
+                dto.AdjustmentType != null)
             {
-                case MovementType.Purchase:
-                    stock.Quantity += dto.Quantity; /* stock.Quantity = stock.Quantity + dto.Quantity */
-                    break;
-
-                case MovementType.Sale:
-
-                    if (dto.Quantity > stock.Quantity)
-                    {
-                        throw new Exception("Insufficient stock.");
-                    }
-                    stock.Quantity -= dto.Quantity; /* stock.Quantity = stock.Quantity - dto.Quantity */
-                    break;
-
-                case MovementType.Adjustment:
-                    if (dto.AdjustmentType== AdjustmentType.increase)
-                    {
-                        stock.Quantity += dto.Quantity; 
-                    }
-                    else if(dto.AdjustmentType == AdjustmentType.decrease)
-                    {
-                        stock.Quantity -= dto.Quantity;
-                    }
-
-                    else
-                    {
-                        throw new Exception("Adjustment type must be specified for adjustment movements.");
-                    }
-                    break;
-
+                throw new Exception(
+                    "Adjustment type is only valid for adjustment movements.");
             }
+
+
 
             var movement = new StockMovement
             {
@@ -81,9 +58,9 @@ namespace InventoryManagement.Services
             };
 
             _context.StockMovements.Add(movement);
-            await _context.SaveChangesAsync();
+            /*await _context.SaveChangesAsync();*/
 
-            return new StockMovementResponseDto
+            /*return new StockMovementResponseDto
             {
                 StockMovementId = movement.StockMovementId,
                 ProductId = movement.ProductId,
@@ -92,7 +69,7 @@ namespace InventoryManagement.Services
                 MovementDate = movement.MovementDate,
                 ReferenceId = movement.ReferenceId,
                 AdjustmentType = movement.AdjustmentType
-            };
+            };*/
 
         }
         public async Task<List<StockMovementResponseDto>> GetStockMovementsAsync()

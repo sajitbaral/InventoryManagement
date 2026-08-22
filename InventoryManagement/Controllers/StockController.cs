@@ -1,4 +1,5 @@
 ﻿using InventoryManagement.Dto;
+using InventoryManagement.Entities.Inventory;
 using InventoryManagement.IService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -34,7 +35,7 @@ namespace InventoryManagement.Controllers
             return Ok(stock);
         }
 
-        [HttpPost]
+        /*[HttpPost]
         public async Task<ActionResult<StockResponseDto>> CreateStock(CreateStockDto dto)
         {
             var stock = await _stockService.CreateStockAsync(dto);
@@ -62,7 +63,28 @@ namespace InventoryManagement.Controllers
                 return NotFound();
 
             return NoContent();
+        }*/
+
+        [HttpPost("increase")]
+        public async Task<ActionResult>IncreaseStock(int productId, int quantity, int purchaseId)
+        {
+            var stock = await _stockService.IncreaseStockAsync(productId, quantity, purchaseId);
+
+            return Ok(stock);
         }
 
+        [HttpPost("decrease")]
+        public async Task<IActionResult> DecreaseStock(int productId, int quantity, int saleId)
+        {
+            var stock = await _stockService.DecreaseStockAsync(productId, quantity, saleId);
+            return Ok(stock);
+        }
+
+        [HttpPost("adjust")]
+        public async Task<IActionResult> AdjustStock(int productId, int quantity, AdjustmentType adjustmentType)
+        {
+            var stock = await _stockService.AdjustStockAsync(productId, quantity, adjustmentType);
+            return Ok(stock);
+        }
     }
 }

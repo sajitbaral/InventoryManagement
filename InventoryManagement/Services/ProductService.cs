@@ -55,6 +55,7 @@ namespace InventoryManagement.Services
             var product = new Product
             {
                 Name = dto.Name,
+                SKU = dto.SKU,
                 Price = dto.Price,
                 CategoryId = dto.CategoryId
             };
@@ -67,8 +68,10 @@ namespace InventoryManagement.Services
             {
                 ProductId = product.ProductId,
                 Name = product.Name,
+                SKU = product.SKU,
                 Price = product.Price,
-                CategoryId = product.CategoryId
+                CategoryId = product.CategoryId,
+                Description = product.Description
             };
 
         }

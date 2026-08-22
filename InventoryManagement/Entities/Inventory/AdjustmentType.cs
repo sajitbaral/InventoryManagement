@@ -2,7 +2,7 @@
 {
     public enum AdjustmentType
     {
-        increase,
-        decrease
+        Increase,
+        Decrease
     }
 }

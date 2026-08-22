@@ -31,16 +31,8 @@ namespace InventoryManagement.Controllers
 
             if (movement == null)
             {
-                return NotFound();
+                return NotFound($"Stock movement {stockMovementId} not found.");
             }
-
-            return Ok(movement);
-        }
-
-        [HttpPost]
-        public async Task<ActionResult<StockMovementResponseDto>>CreateStockMovement(CreateStockMovementDto dto)
-        {
-            var movement = await _stockMovementService.CreateStockMovementAsync(dto);
 
             return Ok(movement);
         }

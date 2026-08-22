@@ -37,9 +37,9 @@ namespace InventoryManagement.Data
                 .HasIndex(c => c.Name)
                 .IsUnique();
 
-            modelBuilder.Entity<Stock>()
-                .HasIndex(s=>s.ProductId)
-                .IsUnique();
+            modelBuilder.Entity<Stock>()        /*This prevents duplicate stock records for the same product.*/
+                .HasIndex(s=>s.ProductId)       /*Product ID is the index for the stock record. It says create index for the ProductId column.*/
+                .IsUnique();                    /*Never allow two Stock rows with the same ProductId. Make sure each product has only one stock record.*/
 
             modelBuilder.Entity<Stock>()
                 .HasOne(s => s.Product)

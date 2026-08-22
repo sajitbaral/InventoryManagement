@@ -77,6 +77,8 @@ namespace InventoryManagement.Services
             sale.TotalAmount = sale.SaleItems
                 .Sum(i => i.SubTotal);
 
+            _operationContext.Sales.Add(sale);
+
             await _operationContext.SaveChangesAsync();
 
             return new SaleResponseDto {
@@ -87,7 +89,7 @@ namespace InventoryManagement.Services
                 Items = sale.SaleItems
                     .Select(i => new SaleItemResponseDto
                     {
-                        SaleItemId = i.ProductId,
+                        SaleItemId = i.SaleItemId,
                         ProductId = i.ProductId,
                         Quantity = i.Quantity,
                         UnitPrice= i.UnitPrice,
