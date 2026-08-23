@@ -15,7 +15,6 @@ builder.Services.AddDbContext<OperationDbContext>(options =>
         builder.Configuration.GetConnectionString("OperationDb")
     ));
 
-builder.Services.AddScoped<IAuthService, AuthService>();
 
 builder.Services.AddScoped<IProductService, ProductService>();
 
