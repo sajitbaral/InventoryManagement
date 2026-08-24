@@ -11,11 +11,13 @@ namespace InventoryManagement.Services
     {
         private readonly OperationDbContext _operationContext;
         private readonly InventoryDbContext _inventoryContext;
+        private readonly IStockService _stockService;
 
-        public PurchaseService(OperationDbContext operationContext, InventoryDbContext inventoryContext)
+        public PurchaseService(OperationDbContext operationContext, InventoryDbContext inventoryContext, IStockService stockService)
         {
             _operationContext = operationContext;
             _inventoryContext = inventoryContext;
+            _stockService = stockService;
         }
 
         public async Task<PurchaseResponseDto>CreatePurchaseAsync(CreatePurchaseDto dto)
@@ -40,9 +42,9 @@ namespace InventoryManagement.Services
                     throw new Exception ( "Quantity must be more than 1" );
                 }
 
-                if(item.UnitPrice<= 0)
+                if(item.UnitCost<= 0)
                 {
-                    throw new Exception("Unit price must be greater than 0");
+                    throw new Exception("Unit cost must be greater than 0");
                 }
 
                 var productExists = await _inventoryContext.Products
@@ -65,12 +67,12 @@ namespace InventoryManagement.Services
 
             foreach(var item in dto.Items)
             {
-                var subTotal = item.Quantity * item.UnitPrice;
+                var subTotal = item.Quantity * item.UnitCost;
                 var purchaseItem = new PurchaseItem
                 {
                     ProductId = item.ProductId,
                     Quantity = item.Quantity,
-                    UnitPrice = item.UnitPrice,
+                    UnitCost = item.UnitCost,
                     SubTotal = subTotal
                 };
 
@@ -85,6 +87,12 @@ namespace InventoryManagement.Services
 
             await _operationContext.SaveChangesAsync();
 
+            foreach(var item in purchase.PurchaseItems)
+            {
+                await _stockService.IncreaseStockAsync(item.ProductId, item.Quantity, purchase.PurchaseId);
+
+            }
+
             return new PurchaseResponseDto
             {
                 PurchaseId = purchase.PurchaseId,
@@ -98,7 +106,7 @@ namespace InventoryManagement.Services
                         PurchaseItemId = i.PurchaseItemId,
                         ProductId = i.ProductId,
                         Quantity = i.Quantity,
-                        UnitPrice = i.UnitPrice,
+                        UnitCost = i.UnitCost,
                         SubTotal = i.SubTotal
                     })
                     .ToList()
@@ -122,7 +130,7 @@ namespace InventoryManagement.Services
                             PurchaseItemId = i.PurchaseItemId,
                             ProductId = i.ProductId,
                             Quantity = i.Quantity,
-                            UnitPrice = i.UnitPrice,
+                            UnitCost = i.UnitCost,
                             SubTotal = i.SubTotal
                         })
                         .ToList()
@@ -148,7 +156,7 @@ namespace InventoryManagement.Services
                             PurchaseItemId = i.PurchaseItemId,
                             ProductId = i.ProductId,
                             Quantity = i.Quantity,
-                            UnitPrice = i.UnitPrice,
+                            UnitCost = i.UnitCost,
                             SubTotal = i.SubTotal
                         })
                         .ToList()

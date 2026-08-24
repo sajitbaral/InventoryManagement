@@ -41,7 +41,7 @@ namespace InventoryManagement.Data
                 .HasPrecision(12, 2);
 
             modelBuilder.Entity<PurchaseItem>()
-                .Property(p => p.UnitPrice)
+                .Property(p => p.UnitCost)
                 .HasPrecision(12, 2);
 
             modelBuilder.Entity<PurchaseItem>()

@@ -10,10 +10,12 @@ namespace InventoryManagement.Services
     {
         private readonly OperationDbContext _operationContext;
         private readonly InventoryDbContext _inventoryContext;
-        public SaleService(OperationDbContext operationContext, InventoryDbContext inventoryContext)
+        private readonly IStockService _stockService;
+        public SaleService(OperationDbContext operationContext, InventoryDbContext inventoryContext, IStockService stockService)
         {
             _inventoryContext = inventoryContext;
             _operationContext = operationContext;
+            _stockService = stockService;
 
         }
 
@@ -80,6 +82,14 @@ namespace InventoryManagement.Services
             _operationContext.Sales.Add(sale);
 
             await _operationContext.SaveChangesAsync();
+
+            foreach (var item in sale.SaleItems)
+            {
+                await _stockService.DecreaseStockAsync(item.ProductId, item.Quantity, sale.SaleId);
+
+            }
+
+
 
             return new SaleResponseDto {
                 SaleId = sale.SaleId,

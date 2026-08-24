@@ -19,7 +19,7 @@ namespace InventoryManagement.Entities.Operation
         public int Quantity { get; set; }
          
         [Required]
-        public decimal UnitPrice { get; set; }
+        public decimal UnitCost { get; set; }
 
         public decimal SubTotal { get; set; }
     }

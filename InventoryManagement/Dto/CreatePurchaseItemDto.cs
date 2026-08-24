@@ -11,6 +11,6 @@ namespace InventoryManagement.Dto
         public int Quantity { get; set; }
 
         [Required]
-        public decimal UnitPrice { get; set; }
+        public decimal UnitCost { get; set; }
     }
 }
