@@ -79,6 +79,17 @@ namespace InventoryManagement.Services
             sale.TotalAmount = sale.SaleItems
                 .Sum(i => i.SubTotal);
 
+            foreach(var item in dto.Items)
+            {
+                var hasStock = await _stockService
+                    .HasSufficientStockAsync(item.ProductId, item.Quantity);
+
+                if (!hasStock)
+                {
+                    throw new Exception($"Insufficient stock for product {item.ProductId}");
+                }
+            }
+
             _operationContext.Sales.Add(sale);
 
             await _operationContext.SaveChangesAsync();
@@ -141,7 +152,7 @@ namespace InventoryManagement.Services
                 .Where(s => s.SaleId == saleId)
                 .Select(s => new SaleResponseDto
                 {
-                    SaleId = s.SaleId,
+                    SaleId = s.SaleId, 
                     CustomerId = s.CustomerId,
                     SaleDate = s.SaleDate,
                     TotalAmount = s.TotalAmount,

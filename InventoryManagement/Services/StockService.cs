@@ -185,26 +185,38 @@ namespace InventoryManagement.Services
                 throw new Exception("Insufficient stock quantity.");
             }
 
-            stock.Quantity -= quantity;
-            stock.LastUpdated = DateTime.UtcNow;
+            await using var transaction = await _inventoryContext.Database.BeginTransactionAsync();
 
-            await _stockMovementService.CreateStockMovementAsync(new CreateStockMovementDto
+            try
             {
-                ProductId = productId,
-                MovementType = MovementType.Sale,
-                Quantity = quantity,
-                ReferenceId = saleId
-            });
 
-            await _inventoryContext.SaveChangesAsync();
-            return new StockResponseDto
+                stock.Quantity -= quantity;
+                stock.LastUpdated = DateTime.UtcNow;
+
+                await _stockMovementService.CreateStockMovementAsync(new CreateStockMovementDto
+                {
+                    ProductId = productId,
+                    MovementType = MovementType.Sale,
+                    Quantity = quantity,
+                    ReferenceId = saleId
+                });
+
+                await _inventoryContext.SaveChangesAsync();
+                await transaction.CommitAsync();
+                return new StockResponseDto
+                {
+
+                    StockId = stock.StockId,
+                    ProductId = stock.ProductId,
+                    Quantity = stock.Quantity,
+                    LastUpdated = stock.LastUpdated
+                };
+            }
+            catch
             {
-                   
-                StockId = stock.StockId,
-                ProductId = stock.ProductId,
-                Quantity = stock.Quantity,
-                LastUpdated = stock.LastUpdated
-            };
+                await transaction.RollbackAsync();
+                throw;
+            }
         }
 
         public async Task<StockResponseDto> AdjustStockAsync( int productId,int quantity,AdjustmentType adjustmentType)
@@ -270,6 +282,23 @@ namespace InventoryManagement.Services
                 Quantity = stock.Quantity,
                 LastUpdated = stock.LastUpdated
             };
+        }
+
+        public async Task<bool> HasSufficientStockAsync(int productId, int quantity)
+        {
+            if (quantity <= 0)
+            {
+                throw new Exception("Quantity must be greater than zero.");
+            }
+
+            var stock = await _inventoryContext.Stocks
+                .FirstOrDefaultAsync(s => s.ProductId == productId);
+
+            if (stock == null)
+            {
+                throw new Exception("Stock not found for this product.");
+            }
+            return stock.Quantity >= quantity;
         }
 
 

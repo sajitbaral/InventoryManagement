@@ -16,6 +16,7 @@ namespace InventoryManagement.IService
         Task<StockResponseDto> IncreaseStockAsync(int stockId, int quantity, int purchaseId);
         Task<StockResponseDto> DecreaseStockAsync(int stockId, int quantity, int saleId);
         Task<StockResponseDto> AdjustStockAsync(int stockId, int quantity, AdjustmentType adjustmentType);
+        Task<bool> HasSufficientStockAsync(int productId, int quantity);
 
 
 

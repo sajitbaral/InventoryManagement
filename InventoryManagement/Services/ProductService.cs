@@ -29,11 +29,17 @@ namespace InventoryManagement.Services
                 {
                     ProductId = p.ProductId,
                     Name = p.Name,
+                    SKU = p.SKU,
                     Price = p.Price,
-                    CategoryId = p.CategoryId
+                    Description = p.Description,
+                    CategoryId = p.CategoryId,
 
-
-                }).ToListAsync();
+                    StockQuantity = _context.Stocks
+                        .Where(s=> s.ProductId==p.ProductId)
+                        .Select(s=> s.Quantity)
+                        .FirstOrDefault()                   /* Get the stock quantity for the product. If no stock is found, return 0. And no FirstOrDefault is used as whole query is already asynchronous (return await _context....) */
+                })
+                .ToListAsync();
         }
 
         public async Task<ProductResponseDto?> GetProductByIdAsync(int productId)
@@ -44,8 +50,15 @@ namespace InventoryManagement.Services
                   {
                       ProductId = p.ProductId,
                       Name = p.Name,
+                      SKU = p.SKU,
                       Price = p.Price,
-                      CategoryId = p.CategoryId
+                      Description = p.Description,
+                      CategoryId = p.CategoryId,
+
+                      StockQuantity = _context.Stocks
+                        .Where(s => s.ProductId == p.ProductId)
+                        .Select(s => s.Quantity)
+                        .FirstOrDefault()
                   })
                   .FirstOrDefaultAsync();
 
