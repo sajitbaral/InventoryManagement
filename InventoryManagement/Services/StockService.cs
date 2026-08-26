@@ -212,11 +212,17 @@ namespace InventoryManagement.Services
                     LastUpdated = stock.LastUpdated
                 };
             }
+            catch(DbUpdateConcurrencyException)
+            {
+                await transaction.RollbackAsync();
+                throw new Exception("Stock was changed by another request. Please try again");
+            }
             catch
             {
                 await transaction.RollbackAsync();
                 throw;
             }
+
         }
 
         public async Task<StockResponseDto> AdjustStockAsync( int productId,int quantity,AdjustmentType adjustmentType)

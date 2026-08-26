@@ -15,5 +15,8 @@ namespace InventoryManagement.Entities.Inventory
         public int Quantity { get; set; }
 
         public DateTime LastUpdated { get; set; }
+
+        [Timestamp]
+        public byte[] RowVersion { get; set; } = null!;
     }
 }
