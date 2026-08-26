@@ -11,8 +11,8 @@ namespace InventoryManagement.Dto
         [Required]
         public int Quantity { get; set; }
 
-        [Required]
-        public decimal UnitPrice { get; set; }
+        /*[Required]
+        public decimal UnitPrice { get; set; }       This will allow client to send any price other than product.price*/          
 
 
     }

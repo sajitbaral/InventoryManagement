@@ -41,15 +41,10 @@ namespace InventoryManagement.Services
                     throw new Exception("Qunatity must be greater than 0");
                 }
 
-                if (item.UnitPrice <= 0)
-                {
-                    throw new Exception("Unit price must be greater than 0");
-                }
+                var product = await _inventoryContext.Products
+                    .FirstOrDefaultAsync(p => p.ProductId == item.ProductId);
 
-                var productExists = await _inventoryContext.Products
-                    .AnyAsync(p => p.ProductId == item.ProductId);
-
-                if (!productExists)
+                if (product==null)
                 {
                     throw new Exception($"Product {item.ProductId} not found");
                 }
@@ -64,12 +59,19 @@ namespace InventoryManagement.Services
 
             foreach (var item in dto.Items)
             {
-                var subTotal = item.Quantity * item.UnitPrice;
+                var product = await _inventoryContext.Products
+                    .FirstOrDefaultAsync(p => p.ProductId == item.ProductId);
+
+                if (product == null)
+                {
+                    throw new Exception($"Product {item.ProductId} not found");
+                }
+                var subTotal = item.Quantity * product.Price;
                 var saleItem = new SaleItem
                 {
                     ProductId = item.ProductId,
                     Quantity = item.Quantity,
-                    UnitPrice = item.UnitPrice,
+                    UnitPrice = product.Price,
                     SubTotal = subTotal
                 };
 
