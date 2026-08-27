@@ -81,9 +81,14 @@ namespace InventoryManagement.Controllers
         }
 
         [HttpPost("adjust")]
-        public async Task<IActionResult> AdjustStock(int productId, int quantity, AdjustmentType adjustmentType)
+        public async Task<IActionResult> AdjustStock( AdjustStockRequestDto request)
         {
-            var stock = await _stockService.AdjustStockAsync(productId, quantity, adjustmentType);
+            var stock = await _stockService.AdjustStockAsync(
+                
+                request.ProductId,
+                request.Quantity,
+                request.AdjustmentType
+                );
             return Ok(stock);
         }
     }

@@ -248,38 +248,59 @@ namespace InventoryManagement.Services
                 throw new Exception("Stock not found for this product.");
             }
 
-            switch (adjustmentType)
+            await using var transaction = await _inventoryContext.Database.BeginTransactionAsync();
+
+            try
             {
-                case AdjustmentType.Increase:
-                    stock.Quantity += quantity;
-                    break;
 
-                case AdjustmentType.Decrease:
+                switch (adjustmentType)
+                {
+                    case AdjustmentType.Increase:
+                        stock.Quantity += quantity;
+                        break;
 
-                    if (quantity > stock.Quantity)
+                    case AdjustmentType.Decrease:
+
+                        if (quantity > stock.Quantity)
+                        {
+                            throw new Exception("Insufficient stock quantity.");
+                        }
+
+                        stock.Quantity -= quantity;
+                        break;
+
+                    default:
+                        throw new Exception("Invalid adjustment type.");
+                }
+
+                stock.LastUpdated = DateTime.UtcNow;
+
+                await _stockMovementService.CreateStockMovementAsync(
+                    new CreateStockMovementDto
                     {
-                        throw new Exception("Insufficient stock quantity.");
-                    }
+                        ProductId = productId,
+                        MovementType = MovementType.Adjustment,
+                        Quantity = quantity,
+                        AdjustmentType = adjustmentType
+                    });
 
-                    stock.Quantity -= quantity;
-                    break;
+                await _inventoryContext.SaveChangesAsync();
 
-                default:
-                    throw new Exception("Invalid adjustment type.");
+            await transaction.CommitAsync();
             }
 
-            stock.LastUpdated = DateTime.UtcNow;
+            catch (DbUpdateConcurrencyException)
+            {
+                await transaction.RollbackAsync();
+                throw new Exception("Stock was changed by another request. Please try again.");
+            }
 
-            await _stockMovementService.CreateStockMovementAsync(
-                new CreateStockMovementDto
-                {
-                    ProductId = productId,
-                    MovementType = MovementType.Adjustment,
-                    Quantity = quantity,
-                    AdjustmentType = adjustmentType
-                });
+            catch
+            {
+                await transaction.RollbackAsync();
+                throw;
+            }
 
-            await _inventoryContext.SaveChangesAsync();
 
             return new StockResponseDto
             {
