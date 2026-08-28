@@ -152,7 +152,7 @@ namespace InventoryManagement.Services
 
                     Items = p.PurchaseItems
                         .Select(i => new PurchaseItemResponseDto
-                        {
+                        {   
                             PurchaseItemId = i.PurchaseItemId,
                             ProductId = i.ProductId,
                             Quantity = i.Quantity,

@@ -1,3 +1,5 @@
 <Solution>
-  <Project Path="InventoryManagement/InventoryManagement.csproj" />
+  <Folder Name="/Backend/">
+    <Project Path="Backend/InventoryManagement/InventoryManagement.csproj" />
+  </Folder>
 </Solution>
