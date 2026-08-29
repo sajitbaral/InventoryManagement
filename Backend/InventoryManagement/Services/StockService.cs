@@ -20,39 +20,7 @@ namespace InventoryManagement.Services
             
         }
 
-       /* public async Task<StockResponseDto> CreateStockAsync(CreateStockDto dto)
-        {
-            var productExists = await _context.Products
-                .AnyAsync(p => p.ProductId == dto.ProductId);
-
-            if (!productExists)
-                throw new Exception("Product not found.");
-
-            var stockExists = await _context.Stocks
-                .AnyAsync(s=> s.ProductId == dto.ProductId);
-
-            if (stockExists)
-                throw new Exception("Stock for this product already exists.");
-
-            var stock = new Stock
-            {
-                ProductId = dto.ProductId,
-                Quantity = dto.Quantity,
-                LastUpdated = DateTime.UtcNow
-            };
-
-            _context.Stocks.Add(stock);
-            await _context.SaveChangesAsync();
-
-            return new StockResponseDto
-            {
-                StockId = stock.StockId,
-                ProductId= stock.ProductId,
-                Quantity = stock.Quantity,
-                LastUpdated = stock.LastUpdated
-            };
-        }
-       */
+      
 
         public async Task<List<StockResponseDto>> GetStocksAsync()
         {
@@ -330,38 +298,5 @@ namespace InventoryManagement.Services
 
 
     }
-
-        
-        
-        /*public async Task<bool> UpdateStockAsync(int stockId, UpdateStockDto dto)
-        {
-            var stock = await _context.Stocks
-                .FirstOrDefaultAsync(s => s.StockId == stockId);
-
-            if (stock == null)
-                return false;
-
-            stock.Quantity = dto.Quantity;
-            stock.LastUpdated = DateTime.UtcNow;
-
-            await _context.SaveChangesAsync();
-
-            return true;
-        }
-
-        public async Task<bool> DeleteStockAsync(int stockId)
-        {
-            var stock = await _context.Stocks
-                .FirstOrDefaultAsync(s => s.StockId == stockId);
-
-            if (stock == null)
-                return false;
-
-            _context.Stocks.Remove(stock);
-            await _context.SaveChangesAsync();
-
-            return true;
-        }
-        */
     
 }

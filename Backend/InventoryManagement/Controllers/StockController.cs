@@ -35,35 +35,7 @@ namespace InventoryManagement.Controllers
             return Ok(stock);
         }
 
-        /*[HttpPost]
-        public async Task<ActionResult<StockResponseDto>> CreateStock(CreateStockDto dto)
-        {
-            var stock = await _stockService.CreateStockAsync(dto);
-
-            return Ok(stock);
-        }
-
-        [HttpPut("{stockId}")]
-        public async Task<IActionResult> UpdateStock(int stockId, UpdateStockDto dto)
-        {
-            var updated = await _stockService.UpdateStockAsync(stockId, dto);
-
-            if (!updated)
-                return NotFound();
-
-            return NoContent();
-        }
-
-        [HttpDelete("{stockId}")]
-        public async Task<IActionResult> DeleteStock(int stockId)
-        {
-            var deleted = await _stockService.DeleteStockAsync(stockId);
-
-            if (!deleted)
-                return NotFound();
-
-            return NoContent();
-        }*/
+      
 
         [HttpPost("increase")]
         public async Task<ActionResult>IncreaseStock(int productId, int quantity, int purchaseId)

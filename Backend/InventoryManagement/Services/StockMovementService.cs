@@ -58,18 +58,8 @@ namespace InventoryManagement.Services
             };
 
             _context.StockMovements.Add(movement);
-            /*await _context.SaveChangesAsync();*/
 
-            /*return new StockMovementResponseDto
-            {
-                StockMovementId = movement.StockMovementId,
-                ProductId = movement.ProductId,
-                MovementType = movement.MovementType,
-                Quantity = movement.Quantity,
-                MovementDate = movement.MovementDate,
-                ReferenceId = movement.ReferenceId,
-                AdjustmentType = movement.AdjustmentType
-            };*/
+        
 
         }
         public async Task<List<StockMovementResponseDto>> GetStockMovementsAsync()
