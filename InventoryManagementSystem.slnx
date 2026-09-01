@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/Backend/">
+    <Project Path="Backend/InventoryManagement/InventoryManagement.csproj" />
+  </Folder>
+  <Folder Name="/Backend/Inventory/" />
+  <Folder Name="/Backend/Inventory/Presentation/" />
+  <Folder Name="/Backend/Inventory/Presentation/Api/">
+    <Project Path="Backend/Inventory/Presentation/Api/Inventory.Api.csproj" />
+  </Folder>
+  <Folder Name="/Backend/Operational/" />
+  <Folder Name="/Backend/Operational/Presentation/" />
+  <Folder Name="/Backend/Operational/Presentation/Api/">
+    <Project Path="Backend/Operational/Presentation/Api/Operational.Api.csproj" />
+  </Folder>
+</Solution>
