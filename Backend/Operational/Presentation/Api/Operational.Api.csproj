@@ -10,4 +10,9 @@
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.11" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Application\Operational.Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Operational.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

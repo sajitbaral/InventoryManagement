@@ -3,11 +3,31 @@
     <Project Path="Backend/InventoryManagement/InventoryManagement.csproj" />
   </Folder>
   <Folder Name="/Backend/Inventory/" />
+  <Folder Name="/Backend/Inventory/Core/" />
+  <Folder Name="/Backend/Inventory/Core/Application/">
+    <Project Path="Backend/Inventory/Core/Application/Inventory.Application.csproj" />
+  </Folder>
+  <Folder Name="/Backend/Inventory/Core/Domain/">
+    <Project Path="Backend/Inventory/Core/Domain/Inventory.Domain.csproj" />
+  </Folder>
+  <Folder Name="/Backend/Inventory/Infrastructure/">
+    <Project Path="Backend/Inventory/Infrastructure/Inventory.Infrastructure.csproj" />
+  </Folder>
   <Folder Name="/Backend/Inventory/Presentation/" />
   <Folder Name="/Backend/Inventory/Presentation/Api/">
     <Project Path="Backend/Inventory/Presentation/Api/Inventory.Api.csproj" />
   </Folder>
   <Folder Name="/Backend/Operational/" />
+  <Folder Name="/Backend/Operational/Core/" />
+  <Folder Name="/Backend/Operational/Core/Application/">
+    <Project Path="Backend/Operational/Core/Application/Operational.Application.csproj" />
+  </Folder>
+  <Folder Name="/Backend/Operational/Core/Domain/">
+    <Project Path="Backend/Operational/Core/Domain/Operational.Domain.csproj" />
+  </Folder>
+  <Folder Name="/Backend/Operational/Infrastructure/">
+    <Project Path="Backend/Operational/Infrastructure/Operational.Infrastructure.csproj" />
+  </Folder>
   <Folder Name="/Backend/Operational/Presentation/" />
   <Folder Name="/Backend/Operational/Presentation/Api/">
     <Project Path="Backend/Operational/Presentation/Api/Operational.Api.csproj" />
