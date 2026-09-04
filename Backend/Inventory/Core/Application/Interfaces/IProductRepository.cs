@@ -1,10 +1,16 @@
-﻿using System;
+﻿using Inventory.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Inventory.Application.Interfaces
 {
-    internal interface IProductRepository
+    public interface IProductRepository
     {
+        Task<List<Product>> GetProductsAsync();
+        Task<Product?> GetProductByIdAsync(int productId);
+        Task AddAsync(Product product);
+        void DeleteAsync(Product product);
+        Task SaveChangesAsync();
     }
 }
