@@ -39,7 +39,7 @@ public class ProductRepository : IProductRepository
         await _context.Products.AddAsync(product);
     }
 
-    public void DeleteAsync(Product product)
+    public void Delete(Product product)
     {
         _context.Products.Remove(product);
     }

@@ -10,7 +10,7 @@ namespace Inventory.Application.Interfaces
         Task<List<Product>> GetProductsAsync();
         Task<Product?> GetProductByIdAsync(int productId);
         Task AddAsync(Product product);
-        void DeleteAsync(Product product);
+        void Delete(Product product);
         Task SaveChangesAsync();
     }
 }
