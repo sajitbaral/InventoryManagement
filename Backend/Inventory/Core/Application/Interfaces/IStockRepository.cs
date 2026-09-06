@@ -7,6 +7,8 @@ namespace Inventory.Application.Interfaces
 {
     public interface IStockRepository
     {
-        public Task<Stock?> GetByProductIdAsync(int productId);
+        Task<Stock?> GetByProductIdAsync(int productId, CancellationToken cancellationToken);
+        Task<List<Stock>> GetByProductIdsAsync(IEnumerable<int> productIds, CancellationToken cancellationToken);
+
     }
 }

@@ -16,9 +16,16 @@ public class StockRepository : IStockRepository
         _context = context;
     }
 
-    public async Task<Stock?>GetByProductIdAsync(int productId)
+    public async Task<Stock?>GetByProductIdAsync(int productId, CancellationToken cancellationToken)
     {
         return await _context.Stocks
-            .FirstOrDefaultAsync(s => s.ProductId == productId);
+            .FirstOrDefaultAsync(s => s.ProductId == productId, cancellationToken);
+    }
+
+    public async Task<List<Stock>> GetByProductIdsAsync(IEnumerable<int> productIds, CancellationToken cancellationToken)
+    {
+        return await _context.Stocks
+            .Where(s=>productIds.Contains(s.ProductId))
+            .ToListAsync(cancellationToken);
     }
 }

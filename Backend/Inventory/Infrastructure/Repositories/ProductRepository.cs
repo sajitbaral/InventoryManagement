@@ -16,7 +16,7 @@ public class ProductRepository : IProductRepository
         _context = context;
     }
 
-    public async Task<List<Product>> GetProductsAsync()
+    public async Task<List<Product>> GetProductsAsync(CancellationToken cancellationToken)
     {
 
         var products= await _context.Products
@@ -26,7 +26,7 @@ public class ProductRepository : IProductRepository
             
     }
 
-    public async Task<Product?> GetProductByIdAsync(int productId)
+    public async Task<Product?> GetProductByIdAsync(int productId, CancellationToken cancellationToken)
     {
         var product = await _context.Products
             .FirstOrDefaultAsync(p => p.ProductId == productId);
@@ -44,7 +44,7 @@ public class ProductRepository : IProductRepository
         _context.Products.Remove(product);
     }
 
-    public async Task SaveChangesAsync()
+    public async Task SaveChangesAsync(CancellationToken cancellationToken)
     {
         await _context.SaveChangesAsync();
     }
