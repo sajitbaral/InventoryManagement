@@ -1,4 +1,4 @@
-﻿using Inventory.Application.DTOs.Products;
+﻿using Inventory.Application.DTOs.Product;
 using Inventory.Application.Interfaces;
 using Inventory.Domain.Entities;
 using System;

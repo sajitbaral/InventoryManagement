@@ -1,4 +1,4 @@
-﻿namespace Inventory.Application.DTOs.Products;
+﻿namespace Inventory.Application.DTOs.Product;
 
     public class ProductResponseDto
     {

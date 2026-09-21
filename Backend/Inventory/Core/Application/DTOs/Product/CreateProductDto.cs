@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Inventory.Application.DTOs.Products;
+namespace Inventory.Application.DTOs.Product;
 
 public class CreateProductDto
 {
@@ -10,10 +10,10 @@ public class CreateProductDto
     [Required]
     public string SKU { get; set; } = string.Empty;
 
-    [Required]
+    [Range(0.01, double.MaxValue)]
     public decimal Price { get; set; }
 
-    [Required]
+    [Range(1, int.MaxValue)]
     public int CategoryId { get; set; }
     public string? Description {get; set;}
 }
