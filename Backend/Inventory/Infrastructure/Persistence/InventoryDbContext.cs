@@ -43,7 +43,7 @@ public class InventoryDbContext : DbContext
 
         modelBuilder.Entity<Stock>()
             .HasOne(s => s.Product)
-            .WithOne()
+            .WithOne(p=>p.Stock)
             .HasForeignKey<Stock>(s => s.ProductId)
             .OnDelete(DeleteBehavior.Restrict);
 

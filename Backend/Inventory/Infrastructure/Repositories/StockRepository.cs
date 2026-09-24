@@ -28,4 +28,20 @@ public class StockRepository : IStockRepository
             .Where(s=>productIds.Contains(s.ProductId))
             .ToListAsync(cancellationToken);
     }
+
+    public async Task<List<Stock>> GetStocksAsync(CancellationToken cancellationToken)
+    {
+        var stocks = await _context.Stocks
+            .ToListAsync(cancellationToken);
+
+        return stocks;
+    }
+
+    public async Task<Stock?> GetByIdAsync(int stockId,  CancellationToken cancellationToken)
+    {
+        var stock = await _context.Stocks
+            .FirstOrDefaultAsync(s => s.StockId == stockId, cancellationToken);
+
+        return stock;
+    }
 }
