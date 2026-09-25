@@ -1,10 +1,14 @@
-﻿using System;
+﻿using Inventory.Application.DTOs.Stock;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Inventory.Application.Interfaces
 {
-    internal interface IStockService
+    public interface IStockService
     {
+        Task <StockResponseDto> IncreaseStockAsync(IncreaseStockDto dto, CancellationToken cancellationToken);
+        Task <StockResponseDto> DecreaseStockAsync(DecreaseStockDto dto, CancellationToken cancellationToken);
+        Task <StockResponseDto> AdjustStockAsync(AdjustmentStockDto dto, CancellationToken cancellationToken);
     }
 }

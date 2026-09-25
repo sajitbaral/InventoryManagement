@@ -83,7 +83,12 @@ namespace Inventory.Application.Services
                 CategoryId = dto.CategoryId,
                 Description = dto.Description,
                 IsActive = true,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = DateTime.UtcNow,
+                Stock = new Stock
+                {
+                    Quantity = 0,
+                    LastUpdated= DateTime.UtcNow
+                }
 
             };
 
@@ -98,7 +103,7 @@ namespace Inventory.Application.Services
                 Price = product.Price,
                 Description = product.Description,
                 CategoryId = product.CategoryId,
-                StockQuantity = 0
+                StockQuantity = product.Stock.Quantity
             };
         }
 
