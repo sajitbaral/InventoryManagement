@@ -20,6 +20,55 @@ namespace Inventory.Application.Services
             _unitOfWork= unitOfWork;
         }
 
+        public async Task<List<StockResponseDto>> GetStocksAsync(CancellationToken cancellationToken)
+        {
+            var stocks= await _stockRepository.GetStocksAsync(cancellationToken);
+
+            return stocks.Select(s=> new StockResponseDto
+            {
+                StockId= s.StockId,
+                ProductId= s.ProductId,
+                Quantity = s.Quantity,
+                LastUpdated= s.LastUpdated
+            })
+                .ToList();
+            
+        }
+
+        public async Task<StockResponseDto?> GetByIdAsync(int stockId, CancellationToken cancellationToken)
+        {
+            var stock = await _stockRepository.GetByIdAsync(stockId, cancellationToken);
+            if (stock == null)
+            {
+                return null;
+            }
+            return new StockResponseDto
+            {
+                StockId = stock.StockId,
+                ProductId = stock.ProductId,
+                Quantity = stock.Quantity,
+                LastUpdated = stock.LastUpdated
+            };
+                
+        }
+
+        public async Task<StockResponseDto?> GetByProductIdAsync(int productId,  CancellationToken cancellationToken)
+        {
+            var stock = await _stockRepository.GetByProductIdAsync(productId, cancellationToken);
+
+            if(stock == null)
+            {
+                return null;
+            }
+            return new StockResponseDto
+            {
+                StockId = stock.StockId,
+                ProductId = stock.ProductId,
+                Quantity = stock.Quantity,
+                LastUpdated = stock.LastUpdated
+            };
+        }
+
         public async Task<StockResponseDto> IncreaseStockAsync(IncreaseStockDto dto, CancellationToken cancellationToken)
         {
             var stock = await _stockRepository.GetByProductIdAsync(dto.ProductId, cancellationToken);
