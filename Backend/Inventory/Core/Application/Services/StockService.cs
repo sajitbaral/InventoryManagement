@@ -66,5 +66,55 @@ namespace Inventory.Application.Services
             };
 
         }
+
+        public async Task <StockResponseDto> DecreaseStockAsync(DecreaseStockDto dto, CancellationToken cancellationToken)
+        {
+            var stock = await _stockRepository.GetByProductIdAsync(dto.ProductId, cancellationToken);
+
+            if (stock == null)
+            {
+                throw new Exception("Stock for this product not found.");
+            }
+            if (stock.Quantity < dto.Quantity)
+            {
+                throw new Exception("Insufficient Quantity for this product");
+            }
+
+            try
+            {
+                await _unitOfWork.BeginTransactionAsync(cancellationToken);
+
+                stock.Quantity -= dto.Quantity;
+                stock.LastUpdated = DateTime.UtcNow;
+
+                var stockMovement = new StockMovement
+                {
+                    ProductId = dto.ProductId,
+                    MovementType = Domain.Enums.MovementType.Sale,
+                    Quantity = dto.Quantity,
+                    MovementDate = DateTime.UtcNow,
+                };
+
+                await _stockMovementRepository.AddAsync(stockMovement);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                await _unitOfWork.CommitTransactionAsync(cancellationToken);
+
+            }
+            catch
+            {
+                await _unitOfWork.RollbackTransactionAsync(cancellationToken);
+                throw;
+            }
+
+            return new StockResponseDto
+            {
+                StockId = stock.StockId,
+                ProductId = stock.ProductId,
+                Quantity = stock.Quantity,
+                LastUpdated = stock.LastUpdated
+            };
+
+        
+        }
     }
 }
