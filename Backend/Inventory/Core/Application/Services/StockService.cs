@@ -116,5 +116,89 @@ namespace Inventory.Application.Services
 
         
         }
+
+        public async Task <StockResponseDto> AdjustmentStockAsync(AdjustmentStockDto dto,  CancellationToken cancellationToken)
+        {
+            var stock = await _stockRepository.GetByProductIdAsync(dto.ProductId, cancellationToken);
+
+            if(stock == null)
+            {
+                throw new Exception("Stock not found.");
+            }
+            if (dto.AdjustmentType == Domain.Enums.AdjustmentType.Increase)
+            {
+                try
+                {
+                    await _unitOfWork.BeginTransactionAsync(cancellationToken);
+
+                    stock.Quantity += dto.Quantity;
+                    stock.LastUpdated = DateTime.UtcNow;
+
+
+
+                    var stockMovement = new StockMovement
+                    {
+                        ProductId = dto.ProductId,
+                        MovementType = Domain.Enums.MovementType.Adjustment,
+                        Quantity = dto.Quantity,
+                        MovementDate = DateTime.UtcNow,
+                        AdjustmentType = dto.AdjustmentType,
+                    };
+
+                    await _stockMovementRepository.AddAsync(stockMovement);
+                    await _unitOfWork.SaveChangesAsync(cancellationToken);
+                    await _unitOfWork.CommitTransactionAsync(cancellationToken);
+
+                }
+                catch
+                {
+                    await _unitOfWork.RollbackTransactionAsync(cancellationToken);
+                    throw;
+                }
+            }
+
+            else if (dto.AdjustmentType == Domain.Enums.AdjustmentType.Decrease)
+            {
+                if (stock.Quantity < dto.Quantity)
+                {
+                    throw new Exception("Insufficient Quantity for this product");
+                }
+
+                try
+                {
+                    await _unitOfWork.BeginTransactionAsync(cancellationToken);
+
+                    stock.Quantity -= dto.Quantity;
+                    stock.LastUpdated = DateTime.UtcNow;
+
+                    var stockMovement = new StockMovement
+                    {
+                        ProductId = dto.ProductId,
+                        MovementType = Domain.Enums.MovementType.Adjustment,
+                        Quantity = dto.Quantity,
+                        MovementDate = DateTime.UtcNow,
+                        AdjustmentType= dto.AdjustmentType
+                    };
+
+                    await _stockMovementRepository.AddAsync(stockMovement);
+                    await _unitOfWork.SaveChangesAsync(cancellationToken);
+                    await _unitOfWork.CommitTransactionAsync(cancellationToken);
+
+                }
+                catch
+                {
+                    await _unitOfWork.RollbackTransactionAsync(cancellationToken);
+                    throw;
+                }
+            }
+
+            return new StockResponseDto
+            {
+                StockId = stock.StockId,
+                ProductId = stock.ProductId,
+                Quantity = stock.Quantity,
+                LastUpdated = stock.LastUpdated
+            };
+        }
     }
 }

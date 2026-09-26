@@ -9,6 +9,6 @@ namespace Inventory.Application.Interfaces
     {
         Task <StockResponseDto> IncreaseStockAsync(IncreaseStockDto dto, CancellationToken cancellationToken);
         Task <StockResponseDto> DecreaseStockAsync(DecreaseStockDto dto, CancellationToken cancellationToken);
-        Task <StockResponseDto> AdjustStockAsync(AdjustmentStockDto dto, CancellationToken cancellationToken);
+        Task <StockResponseDto> AdjustmentStockAsync(AdjustmentStockDto dto, CancellationToken cancellationToken);
     }
 }
