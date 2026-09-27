@@ -7,15 +7,12 @@ namespace Inventory.Domain.Entities
     {
         public int StockMovementId { get; set; }
 
-        [Required]
         public int ProductId { get; set; }
 
         public Product Product { get; set; } = null!;
 
-        [Required]
         public MovementType MovementType { get; set; }
 
-        [Required]
         public int Quantity { get; set; }
 
         [Required]

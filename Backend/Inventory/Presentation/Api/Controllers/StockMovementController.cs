@@ -42,9 +42,9 @@ namespace Inventory.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<List<StockMovementResponseDto>>> GetByProductIdAsync(int productId, CancellationToken cancellationToken)
         {
-            var stockMovement = await _stockMovementService.GetByProductIdAsync(productId, cancellationToken);
+            var stockMovements = await _stockMovementService.GetByProductIdAsync(productId, cancellationToken);
 
-            return Ok(stockMovement);
+            return Ok(stockMovements);
         }
     }
 }

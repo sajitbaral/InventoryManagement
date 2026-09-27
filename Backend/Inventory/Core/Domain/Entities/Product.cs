@@ -11,17 +11,13 @@ namespace Inventory.Domain.Entities
 
         [Required]
         public string SKU { get; set; } = string.Empty;
-
-        [Required]
         public int CategoryId { get; set; }
 
-        [Required]
         public Category Category { get; set; } = null!;     /*This is a required navigation property. A navigation property is a C# property that lets you move from one entity to a related entity. We can do product.Category.Name and direclty get that product*/
 
 
         public Stock Stock { get; set; } = null!;
 
-        [Required]
         public decimal Price { get; set; }
 
         public string? Description { get; set; }
