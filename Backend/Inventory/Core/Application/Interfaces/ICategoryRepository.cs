@@ -11,7 +11,6 @@ namespace Inventory.Application.Interfaces
         Task<Category?> GetCategoryByIdAsync(int categoryId, CancellationToken cancellationToken);
         Task AddAsync(Category category);
         void Delete(Category category);
-        Task SaveChangesAsync(CancellationToken cancellationToken);
 
     }
 }

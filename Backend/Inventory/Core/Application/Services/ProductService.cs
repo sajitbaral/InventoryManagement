@@ -11,10 +11,12 @@ namespace Inventory.Application.Services
     {
         private readonly IProductRepository _productRepository;
         private readonly IStockRepository _stockRepository;
-        public ProductService(IProductRepository productRepository, IStockRepository stockRepository)
+        private readonly IUnitOfWork _unitOfWork;
+        public ProductService(IProductRepository productRepository, IStockRepository stockRepository, IUnitOfWork unitOfWork)
         {
             _productRepository = productRepository;
             _stockRepository = stockRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<List<ProductResponseDto>> GetProductsAsync(CancellationToken cancellationToken)
@@ -93,7 +95,7 @@ namespace Inventory.Application.Services
             };
 
             await _productRepository.AddAsync(product);
-            await _productRepository.SaveChangesAsync(cancellationToken);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
 
             return new ProductResponseDto
             {
@@ -120,7 +122,7 @@ namespace Inventory.Application.Services
             product.Price = dto.Price;
             product.CategoryId = dto.CategoryId;
 
-            await _productRepository.SaveChangesAsync(cancellationToken);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
 
             return true;
         }
@@ -135,7 +137,7 @@ namespace Inventory.Application.Services
             }
 
             _productRepository.Delete(product);
-            await _productRepository.SaveChangesAsync(cancellationToken);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
 
             return true;
 

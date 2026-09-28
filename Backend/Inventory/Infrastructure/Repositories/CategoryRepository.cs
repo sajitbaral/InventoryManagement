@@ -42,10 +42,5 @@ namespace Inventory.Infrastructure.Repositories
         {
             _context.Categories.Remove(category);
         }
-
-        public async Task SaveChangesAsync(CancellationToken cancellationToken)
-        {
-            await _context.SaveChangesAsync(cancellationToken);
-        }
     }
 }

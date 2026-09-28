@@ -11,6 +11,5 @@ namespace Inventory.Application.Interfaces
         Task<Product?> GetProductByIdAsync(int productId, CancellationToken cancellationToken);
         Task AddAsync(Product product);
         void Delete(Product product);
-        Task SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

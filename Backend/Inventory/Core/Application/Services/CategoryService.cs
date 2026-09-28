@@ -10,9 +10,11 @@ namespace Inventory.Application.Services
     public class CategoryService : ICategoryService
     {
         private readonly ICategoryRepository _categoryRepository;
-        public CategoryService(ICategoryRepository categoryRepository)
+        private readonly IUnitOfWork _unitOfWork;
+        public CategoryService(ICategoryRepository categoryRepository, IUnitOfWork unitOfWork)
         {
             _categoryRepository = categoryRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<List<CategoryResponseDto>> GetCategoriesAsync(CancellationToken cancellationToken)
@@ -56,7 +58,7 @@ namespace Inventory.Application.Services
             };
 
             await _categoryRepository.AddAsync(category);
-            await _categoryRepository.SaveChangesAsync(cancellationToken);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
 
             return new CategoryResponseDto
             {
@@ -78,7 +80,7 @@ namespace Inventory.Application.Services
             category.Name = dto.Name;
             category.Description = dto.Description;
 
-            await _categoryRepository.SaveChangesAsync(cancellationToken);
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
             return true;
         }
 
@@ -90,7 +92,7 @@ namespace Inventory.Application.Services
                 return false;
             }
             _categoryRepository.Delete(category);
-            await _categoryRepository.SaveChangesAsync(cancellationToken) ;
+            await _unitOfWork.SaveChangesAsync(cancellationToken) ;
 
             return true;
         }
