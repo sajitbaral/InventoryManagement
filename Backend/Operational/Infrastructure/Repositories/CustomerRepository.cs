@@ -36,12 +36,5 @@ namespace Operational.Infrastructure.Repositories
         {
             await _context.Customers.AddAsync(customer);
         }
-
-        public void Delete(Customer customer)
-        {
-            _context.Customers.Remove(customer);
-        }
-
-
     }
 }

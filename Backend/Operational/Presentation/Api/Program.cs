@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Operational.Application.Interfaces;
+using Operational.Application.Services;
 using Operational.Infrastructure.Persistence;
 using Operational.Infrastructure.Repositories;
 
@@ -13,6 +14,7 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder.Services.AddScoped<ICustomerService, CustomerService>();
 
 builder.Services.AddDbContext<OperationalDbContext>(options =>
     options.UseSqlServer(

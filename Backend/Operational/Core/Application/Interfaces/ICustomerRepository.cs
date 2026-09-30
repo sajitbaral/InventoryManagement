@@ -9,7 +9,6 @@ namespace Operational.Application.Interfaces
     {
         Task<List<Customer>> GetCustomersAsync(CancellationToken cancellationToken);
         Task<Customer?> GetCustomerByIdAsync(int customerId, CancellationToken cancellationToken);
-        Task AddAsync (Customer customer);
-        void Delete (Customer customer);
+        Task AddAsync(Customer customer);
     }
 }
