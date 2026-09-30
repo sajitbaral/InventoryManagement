@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using Operational.Application.Interfaces;
 using Operational.Infrastructure.Persistence;
+using Operational.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 
 builder.Services.AddDbContext<OperationalDbContext>(options =>
     options.UseSqlServer(

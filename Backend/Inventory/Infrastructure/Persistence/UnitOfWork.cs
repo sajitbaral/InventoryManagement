@@ -1,8 +1,7 @@
 ﻿using Inventory.Application.Interfaces;
-using Inventory.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore.Storage;
 
-namespace Inventory.Infrastructure
+namespace Inventory.Infrastructure.Persistence
 {
     public class UnitOfWork : IUnitOfWork
     {
