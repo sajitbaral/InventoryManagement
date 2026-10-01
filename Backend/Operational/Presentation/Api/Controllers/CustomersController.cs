@@ -88,5 +88,23 @@ namespace Operational.Api.Controllers
             return NoContent();
         }
 
+        [HttpPatch("{customerId:int}/activate")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> ActivateCustomer(int customerId, CancellationToken cancellationToken)
+        {
+            var activated = await _customerService.ActivateCustomerAsync(customerId, cancellationToken);
+
+            if (!activated)
+            {
+                return NotFound(new
+                {
+                    Message = $"Customer with CustomerId {customerId} not found."
+                });
+            }
+
+            return NoContent();
+        }
+
     }
 }

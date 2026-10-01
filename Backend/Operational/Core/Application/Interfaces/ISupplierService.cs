@@ -26,5 +26,9 @@ namespace Operational.Application.Interfaces
         Task<bool> DeactivateSupplierAsync(
             int supplierId,
             CancellationToken cancellationToken);
+
+        Task<bool> ActivateSupplierAsync(
+            int supplierId,
+            CancellationToken cancellationToken);
     }
 }

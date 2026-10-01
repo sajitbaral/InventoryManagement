@@ -12,5 +12,6 @@ namespace Operational.Application.Interfaces
         Task<CustomerResponseDto> CreateCustomerAsync(CreateCustomerDto dto,  CancellationToken cancellationToken);
         Task <bool> UpdateCustomerAsync (int  customerId, UpdateCustomerDto dto, CancellationToken cancellationToken);
         Task <bool> DeactivateCustomerAsync(int customerId, CancellationToken cancellationToken);
+        Task<bool> ActivateCustomerAsync(int customerId, CancellationToken cancellationToken);
     }
 }

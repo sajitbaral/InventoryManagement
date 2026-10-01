@@ -126,7 +126,23 @@ namespace Operational.Application.Services
             return true;
         }
 
-        
+        public async Task<bool> ActivateCustomerAsync(int customerId, CancellationToken cancellationToken)
+        {
+            var customer = await _customerRepository.GetCustomerByIdAsync(customerId, cancellationToken);
+
+            if (customer == null)
+            {
+                return false;
+            }
+
+            customer.IsActive = true;
+            customer.UpdatedAt = DateTime.UtcNow;
+
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
+
+            return true;
+        }
+
 
     }
 }

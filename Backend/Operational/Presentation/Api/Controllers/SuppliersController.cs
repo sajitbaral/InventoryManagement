@@ -109,5 +109,26 @@ namespace Operational.Api.Controllers
 
             return NoContent();
         }
+
+        [HttpPatch("{supplierId:int}/activate")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> ActivateSupplier(
+            int supplierId,
+            CancellationToken cancellationToken)
+        {
+            var activated = await _supplierService
+                .ActivateSupplierAsync(supplierId, cancellationToken);
+
+            if (!activated)
+            {
+                return NotFound(new
+                {
+                    Message = $"Supplier with SupplierId {supplierId} not found."
+                });
+            }
+
+            return NoContent();
+        }
     }
 }

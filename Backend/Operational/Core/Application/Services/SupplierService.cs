@@ -113,6 +113,26 @@ namespace Operational.Application.Services
             return true;
         }
 
+        public async Task<bool> ActivateSupplierAsync(
+               int supplierId,
+               CancellationToken cancellationToken)
+        {
+            var supplier = await _supplierRepository
+                .GetSupplierByIdAsync(supplierId, cancellationToken);
+
+            if (supplier == null)
+            {
+                return false;
+            }
+
+            supplier.IsActive = true;
+            supplier.UpdatedAt = DateTime.UtcNow;
+
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
+
+            return true;
+        }
+
         private static SupplierResponseDto MapToResponseDto(
             Supplier supplier)
         {
