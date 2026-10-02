@@ -13,8 +13,6 @@ namespace Operational.Domain.Entities
         public int CustomerId { get; set; }
 
         public Customer Customer { get; set; } = null!;
-
-        [Required]
         public DateTime SaleDate { get; set; }
 
         public decimal TotalAmount { get; set; }

@@ -14,8 +14,6 @@ namespace Inventory.Domain.Entities
         public MovementType MovementType { get; set; }
 
         public int Quantity { get; set; }
-
-        [Required]
         public DateTime MovementDate { get; set; }
 
         public int? ReferenceId { get; set; }
