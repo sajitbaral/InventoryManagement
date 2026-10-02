@@ -95,7 +95,7 @@ namespace Inventory.Application.Services
                     MovementDate = DateTime.UtcNow,
                 };
 
-                await _stockMovementRepository.AddAsync(stockMovement);
+                _stockMovementRepository.Add(stockMovement);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 await _unitOfWork.CommitTransactionAsync(cancellationToken);
 
@@ -144,7 +144,7 @@ namespace Inventory.Application.Services
                     MovementDate = DateTime.UtcNow,
                 };
 
-                await _stockMovementRepository.AddAsync(stockMovement);
+                _stockMovementRepository.Add(stockMovement);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 await _unitOfWork.CommitTransactionAsync(cancellationToken);
 
@@ -194,7 +194,7 @@ namespace Inventory.Application.Services
                         AdjustmentType = dto.AdjustmentType,
                     };
 
-                    await _stockMovementRepository.AddAsync(stockMovement);
+                    _stockMovementRepository.Add(stockMovement);
                     await _unitOfWork.SaveChangesAsync(cancellationToken);
                     await _unitOfWork.CommitTransactionAsync(cancellationToken);
 
@@ -229,7 +229,7 @@ namespace Inventory.Application.Services
                         AdjustmentType= dto.AdjustmentType
                     };
 
-                    await _stockMovementRepository.AddAsync(stockMovement);
+                    _stockMovementRepository.Add(stockMovement);
                     await _unitOfWork.SaveChangesAsync(cancellationToken);
                     await _unitOfWork.CommitTransactionAsync(cancellationToken);
 

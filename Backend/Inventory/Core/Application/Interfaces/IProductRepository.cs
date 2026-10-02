@@ -9,7 +9,7 @@ namespace Inventory.Application.Interfaces
     {
         Task<List<Product>> GetProductsAsync(CancellationToken cancellationToken);
         Task<Product?> GetProductByIdAsync(int productId, CancellationToken cancellationToken);
-        Task AddAsync(Product product);
+        void Add(Product product);
         void Delete(Product product);
     }
 }

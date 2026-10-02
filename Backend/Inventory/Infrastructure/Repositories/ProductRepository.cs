@@ -34,9 +34,9 @@ public class ProductRepository : IProductRepository
         return product;
     }
 
-    public async Task AddAsync(Product product)
+    public void Add(Product product)
     {
-        await _context.Products.AddAsync(product);
+      _context.Products.Add(product);
     }
 
     public void Delete(Product product)

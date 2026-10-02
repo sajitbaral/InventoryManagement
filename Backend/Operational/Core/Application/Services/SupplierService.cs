@@ -62,7 +62,7 @@ namespace Operational.Application.Services
                 UpdatedAt = now
             };
 
-            await _supplierRepository.AddAsync(supplier);
+            _supplierRepository.Add(supplier);
 
             await _unitOfWork.SaveChangesAsync(cancellationToken);
 

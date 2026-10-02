@@ -32,9 +32,9 @@ namespace Operational.Infrastructure.Repositories
             return customer;
         }
 
-        public async Task AddAsync(Customer customer)
+        public void Add(Customer customer)
         {
-            await _context.Customers.AddAsync(customer);
+            _context.Customers.Add(customer);
         }
     }
 }

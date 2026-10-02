@@ -37,9 +37,9 @@ namespace Operational.Infrastructure.Repositories
             return supplier;
         }
 
-        public async Task AddAsync(Supplier supplier)
+        public void Add(Supplier supplier)
         {
-            await _context.Suppliers.AddAsync(supplier);
+           _context.Suppliers.Add(supplier);
         }
     }
 }

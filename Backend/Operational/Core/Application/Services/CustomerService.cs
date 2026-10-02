@@ -32,7 +32,7 @@ namespace Operational.Application.Services
                 UpdatedAt= now
             };
             
-            await _customerRepository.AddAsync(customer);
+            _customerRepository.Add(customer);
             await _unitOfWork.SaveChangesAsync(cancellationToken);
 
             return new CustomerResponseDto

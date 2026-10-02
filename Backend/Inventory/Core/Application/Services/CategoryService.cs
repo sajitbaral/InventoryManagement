@@ -57,7 +57,7 @@ namespace Inventory.Application.Services
                 Description = dto.Description
             };
 
-            await _categoryRepository.AddAsync(category);
+            _categoryRepository.Add(category);
             await _unitOfWork.SaveChangesAsync(cancellationToken);
 
             return new CategoryResponseDto

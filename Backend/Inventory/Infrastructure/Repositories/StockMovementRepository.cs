@@ -41,9 +41,9 @@ namespace Inventory.Infrastructure.Repositories
 
         }
 
-        public async Task AddAsync(StockMovement stockMovement)
+        public void Add(StockMovement stockMovement)
         {
-            await _context.StockMovements.AddAsync(stockMovement);
+          _context.StockMovements.Add(stockMovement);
         }
 
     }

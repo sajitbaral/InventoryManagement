@@ -94,7 +94,7 @@ namespace Inventory.Application.Services
 
             };
 
-            await _productRepository.AddAsync(product);
+            _productRepository.Add(product);
             await _unitOfWork.SaveChangesAsync(cancellationToken);
 
             return new ProductResponseDto

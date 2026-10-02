@@ -9,6 +9,6 @@ namespace Operational.Application.Interfaces
     {
         Task<List<Supplier>> GetSuppliersAsync(CancellationToken cancellationToken);
         Task<Supplier?> GetSupplierByIdAsync(int supplierId, CancellationToken cancellationToken);
-        Task AddAsync(Supplier supplier);
+        void Add(Supplier supplier);
     }
 }

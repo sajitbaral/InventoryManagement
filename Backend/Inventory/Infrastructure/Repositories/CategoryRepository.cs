@@ -33,9 +33,9 @@ namespace Inventory.Infrastructure.Repositories
             return category;
         }
 
-        public async Task AddAsync(Category category)
+        public void Add(Category category)
         {
-            await _context.Categories.AddAsync(category);
+           _context.Categories.Add(category);
         }
 
         public void Delete(Category category)

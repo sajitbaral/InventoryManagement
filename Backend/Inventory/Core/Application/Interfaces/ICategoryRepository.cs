@@ -9,7 +9,7 @@ namespace Inventory.Application.Interfaces
     {
         Task<List<Category>> GetCategoriesAsync(CancellationToken cancellationToken);
         Task<Category?> GetCategoryByIdAsync(int categoryId, CancellationToken cancellationToken);
-        Task AddAsync(Category category);
+        void Add(Category category);
         void Delete(Category category);
 
     }
