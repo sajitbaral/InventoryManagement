@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Operational.Application.Interfaces;
 using Operational.Application.Services;
+using Operational.Infrastructure.Clients;
 using Operational.Infrastructure.Persistence;
 using Operational.Infrastructure.Repositories;
 
@@ -17,6 +18,14 @@ builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<ISupplierRepository, SupplierRepository>();
 builder.Services.AddScoped<ISupplierService, SupplierService>();
+
+
+builder.Services.AddHttpClient<IInventoryClient, InventoryApiClient>(client =>
+{
+    client.BaseAddress = new Uri("http://localhost:5180");
+    client.Timeout = TimeSpan.FromSeconds(30);
+});
+
 
 builder.Services.AddDbContext<OperationalDbContext>(options =>
     options.UseSqlServer(

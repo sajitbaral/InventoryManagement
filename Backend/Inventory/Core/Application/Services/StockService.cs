@@ -1,9 +1,6 @@
 ﻿using Inventory.Application.DTOs.Stock;
 using Inventory.Application.Interfaces;
 using Inventory.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Inventory.Application.Services
 {
@@ -92,6 +89,7 @@ namespace Inventory.Application.Services
                     ProductId = dto.ProductId,
                     MovementType = Domain.Enums.MovementType.Purchase,
                     Quantity = dto.Quantity,
+                    ReferenceId = dto.ReferenceId,
                     MovementDate = DateTime.UtcNow,
                 };
 

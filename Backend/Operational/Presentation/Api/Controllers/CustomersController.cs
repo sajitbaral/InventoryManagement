@@ -5,7 +5,7 @@ using Operational.Application.Interfaces;
 
 namespace Operational.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[customers]")]
     [ApiController]
     public class CustomersController : ControllerBase
     {
