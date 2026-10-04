@@ -30,7 +30,7 @@ namespace Operational.Infrastructure.Clients
         }
 
         public async Task IncreaseStock(IncreaseStockRequest request, CancellationToken cancellationToken)
-        { 
+        {
             var response = await _httpClient.PostAsJsonAsync("api/stocks/increase", request, cancellationToken);
             response.EnsureSuccessStatusCode();
         }

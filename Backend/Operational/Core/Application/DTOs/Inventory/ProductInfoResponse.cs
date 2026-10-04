@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Operational.Application.DTOs.Inventory
 {
-    public class ProductInfoResponseDto
+    public class ProductInfoResponse
     {
         public int ProductId {  get; set; }
         public string Name {  get; set; }
