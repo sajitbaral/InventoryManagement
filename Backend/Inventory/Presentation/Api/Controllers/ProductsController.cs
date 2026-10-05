@@ -5,12 +5,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Inventory.Api.Controllers
 {
-    [Route("api/[products]")]
+    [Route("api/products")]
     [ApiController]
-    public class ProductController : ControllerBase
+    public class ProductsController : ControllerBase
     {
         private readonly IProductService _productService;
-        public ProductController(IProductService productService)
+        public ProductsController(IProductService productService)
         {
             _productService = productService;
         }
@@ -72,15 +72,15 @@ namespace Inventory.Api.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{productId:int}")]
+        [HttpPatch("{productId:int}/deactivate")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
 
-        public async Task<IActionResult>DeleteProduct(int productId, CancellationToken cancellationToken)
+        public async Task<IActionResult>DeactivateProduct(int productId, CancellationToken cancellationToken)
         {
-            var deleted = await _productService.DeleteProductAsync(productId, cancellationToken);
+            var deactivated = await _productService.DeactivateProductAsync(productId, cancellationToken);
 
-            if (!deleted)
+            if (!deactivated)
             {
                 return NotFound(new {
                     Message= $"Product with ID{productId} is not found" 
@@ -89,6 +89,24 @@ namespace Inventory.Api.Controllers
             return NoContent();
         }
 
-        
+        [HttpPatch("{productId:int}/activate")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> ActivateProduct(int productId, CancellationToken cancellationToken)
+        {
+            var activated = await _productService.ActivateProductAsync(productId, cancellationToken);
+
+            if (!activated)
+            {
+                return NotFound(new
+                {
+                    Message = $"Customer with ProductId {productId} not found."
+                });
+            }
+
+            return NoContent();
+        }
+
+
     }
 }

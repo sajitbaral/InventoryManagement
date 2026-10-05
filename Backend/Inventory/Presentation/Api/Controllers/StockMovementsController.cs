@@ -5,12 +5,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Inventory.Api.Controllers
 {
-    [Route("api/[stock-movements]")]
+    [Route("api/stock-movements")]
     [ApiController]
-    public class StockMovementController : ControllerBase
+    public class StockMovementsController : ControllerBase
     {
         private readonly IStockMovementService _stockMovementService;
-        public StockMovementController(IStockMovementService stockMovementService)
+        public StockMovementsController(IStockMovementService stockMovementService)
         {
             _stockMovementService = stockMovementService;
             

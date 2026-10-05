@@ -39,8 +39,4 @@ public class ProductRepository : IProductRepository
       _context.Products.Add(product);
     }
 
-    public void Delete(Product product)
-    {
-        _context.Products.Remove(product);
-    }
 }

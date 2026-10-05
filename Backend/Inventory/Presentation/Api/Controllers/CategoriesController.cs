@@ -6,13 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Inventory.Api.Controllers
 {
-    [Route("api/[categories]")]
+    [Route("api/categories")]
     [ApiController]
-    public class CategoryController : ControllerBase
+    public class CategoriesController : ControllerBase
     {
         private readonly ICategoryService _categoryService;
 
-        public CategoryController(ICategoryService categoryService)
+        public CategoriesController(ICategoryService categoryService)
         {
             _categoryService = categoryService;
         }

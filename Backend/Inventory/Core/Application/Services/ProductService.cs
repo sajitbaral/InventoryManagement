@@ -47,7 +47,10 @@ namespace Inventory.Application.Services
                     Price = product.Price,
                     Description = product.Description,
                     CategoryId = product.CategoryId,
-                    StockQuantity = stock
+                    StockQuantity = stock,
+                    IsActive = product.IsActive,
+                    CreatedAt = product.CreatedAt,
+                    UpdatedAt = product.UpdatedAt
                 };
             }).ToList();
         }
@@ -71,12 +74,16 @@ namespace Inventory.Application.Services
                 Price = product.Price,
                 Description = product.Description,
                 CategoryId = product.CategoryId,
-                StockQuantity = stock?.Quantity ?? 0
+                StockQuantity = stock?.Quantity ?? 0,
+                IsActive = product.IsActive,
+                CreatedAt = product.CreatedAt,
+                UpdatedAt = product.UpdatedAt
             };
         }
 
         public async Task<ProductResponseDto> CreateProductAsync(CreateProductDto dto, CancellationToken cancellationToken)
         {
+            var now = DateTime.UtcNow;
             var product = new Product
             {
                 Name = dto.Name,
@@ -84,12 +91,12 @@ namespace Inventory.Application.Services
                 Price = dto.Price,
                 CategoryId = dto.CategoryId,
                 Description = dto.Description,
-                IsActive = true,
-                CreatedAt = DateTime.UtcNow,
+                CreatedAt = now,
+                UpdatedAt = now,
                 Stock = new Stock
                 {
                     Quantity = 0,
-                    LastUpdated= DateTime.UtcNow
+                    LastUpdated= now
                 }
 
             };
@@ -105,7 +112,10 @@ namespace Inventory.Application.Services
                 Price = product.Price,
                 Description = product.Description,
                 CategoryId = product.CategoryId,
-                StockQuantity = product.Stock.Quantity
+                StockQuantity = product.Stock.Quantity,
+                IsActive = product.IsActive,
+                CreatedAt= product.CreatedAt,
+                UpdatedAt= product.UpdatedAt
             };
         }
 
@@ -121,13 +131,14 @@ namespace Inventory.Application.Services
             product.Name = dto.Name;
             product.Price = dto.Price;
             product.CategoryId = dto.CategoryId;
+            product.UpdatedAt = DateTime.UtcNow;
 
             await _unitOfWork.SaveChangesAsync(cancellationToken);
 
             return true;
         }
 
-        public async Task<bool> DeleteProductAsync(int productId, CancellationToken cancellationToken)
+        public async Task<bool>DeactivateProductAsync(int productId, CancellationToken cancellationToken)
         {
             var product = await _productRepository.GetProductByIdAsync(productId, cancellationToken);
 
@@ -136,7 +147,26 @@ namespace Inventory.Application.Services
                 return false;
             }
 
-            _productRepository.Delete(product);
+            product.IsActive = false;
+            product.UpdatedAt = DateTime.UtcNow;
+
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
+
+            return true;
+
+        }
+        public async Task<bool>ActivateProductAsync(int productId, CancellationToken cancellationToken)
+        {
+            var product = await _productRepository.GetProductByIdAsync(productId, cancellationToken);
+
+            if (product == null)
+            {
+                return false;
+            }
+
+            product.IsActive = true;
+            product.UpdatedAt = DateTime.UtcNow;
+
             await _unitOfWork.SaveChangesAsync(cancellationToken);
 
             return true;
