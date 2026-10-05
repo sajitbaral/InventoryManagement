@@ -102,6 +102,60 @@ namespace Operational.Application.Services
                 .ToList()
             };
         }
+
+        public async Task<List<PurchaseResponseDto>> GetPurchasesAsync(CancellationToken cancellationToken)
+        {
+            var purchases = await _purchaseRepository.GetPurchasesAsync(cancellationToken);
+
+            return purchases.Select(p => new PurchaseResponseDto
+            {
+                PurchaseId = p.PurchaseId,
+                SupplierId = p.SupplierId,
+                PurchaseDate = p.PurchaseDate,
+                TotalAmount = p.TotalAmount,
+                CreatedAt = p.CreatedAt,
+                UpdatedAt = p.UpdatedAt,
+                Items = p.PurchaseItems.Select(pi => new PurchaseItemResponseDto
+                {
+                    PurchaseItemId = pi.PurchaseItemId,
+                    ProductId = pi.ProductId,
+                    Quantity = pi.Quantity,
+                    UnitCost = pi.UnitCost,
+                    SubTotal = pi.SubTotal
+                })
+                .ToList()
+            })
+            .ToList();
+        }
+
+        public async Task<PurchaseResponseDto?> GetPurchaseByIdAsync(int purchaseId, CancellationToken cancellationToken)
+        {
+            var purchase = await _purchaseRepository.GetPurchaseByIdAsync(purchaseId, cancellationToken);
+
+            if(purchase== null)
+            {
+                return null;
+            }
+
+            return new PurchaseResponseDto
+            {
+                PurchaseId = purchase.PurchaseId,
+                SupplierId = purchase.SupplierId,
+                PurchaseDate = purchase.PurchaseDate,
+                TotalAmount = purchase.TotalAmount,
+                CreatedAt = purchase.CreatedAt,
+                UpdatedAt = purchase.UpdatedAt,
+                Items = purchase.PurchaseItems.Select(pi => new PurchaseItemResponseDto
+                {
+                    PurchaseItemId = pi.PurchaseItemId,
+                    ProductId = pi.ProductId,
+                    Quantity = pi.Quantity,
+                    UnitCost = pi.UnitCost,
+                    SubTotal = pi.SubTotal
+                })
+                .ToList()
+            };
+        }
     }
 }
 
