@@ -1,14 +1,12 @@
-﻿
-namespace Operational.Domain.Entities
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Operational.Application.DTOs.Sale
 {
-    public class SaleItem
+    public class SaleItemResponseDto
     {
         public int SaleItemId { get; set; }
-
-        public int SaleId { get; set; }
-
-        public Sale Sale { get; set; } = null!;
-
         public int ProductId { get; set; }
 
         public int Quantity { get; set; }
