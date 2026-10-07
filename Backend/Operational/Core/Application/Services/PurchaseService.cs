@@ -42,7 +42,7 @@ namespace Operational.Application.Services
 
                 if (product == null)
                 {
-                    throw new Exception($"Product with ProductId {item.ProductId} not found.");
+                    throw new KeyNotFoundException($"Product with ProductId {item.ProductId} not found.");
                 }
 
                 if (product.IsActive == false)
