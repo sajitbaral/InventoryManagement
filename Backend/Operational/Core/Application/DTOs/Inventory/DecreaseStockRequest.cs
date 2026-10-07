@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Operational.Application.DTOs.Inventory
 {
-    public class IncreaseStockRequest
+    public class DecreaseStockRequest
     {
         [Range(1, int.MaxValue)]
         public int ProductId {  get; set; }

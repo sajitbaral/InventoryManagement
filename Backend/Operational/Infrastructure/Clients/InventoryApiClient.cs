@@ -34,5 +34,11 @@ namespace Operational.Infrastructure.Clients
             var response = await _httpClient.PostAsJsonAsync("api/stocks/increase", request, cancellationToken);
             response.EnsureSuccessStatusCode();
         }
+
+        public async Task DecreaseStock(DecreaseStockRequest request, CancellationToken cancellationToken)
+        {
+            var response = await _httpClient.PostAsJsonAsync("api/stocks/decrease", request, cancellationToken);
+            response.EnsureSuccessStatusCode() ;
+        }
     }
 }
