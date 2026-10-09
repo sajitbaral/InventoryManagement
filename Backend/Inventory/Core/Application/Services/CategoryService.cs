@@ -1,9 +1,6 @@
 ﻿using Inventory.Application.DTOs.Category;
 using Inventory.Application.Interfaces;
 using Inventory.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Inventory.Application.Services
 {

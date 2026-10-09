@@ -1,6 +1,5 @@
 ﻿using Inventory.Application.DTOs.Stock;
 using Inventory.Application.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Inventory.Api.Controllers

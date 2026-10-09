@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
 using Inventory.Domain.Enums;
 
 namespace Inventory.Domain.Entities

@@ -1,7 +1,4 @@
 ﻿using Inventory.Application.DTOs.StockMovement;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Inventory.Application.Interfaces
 {

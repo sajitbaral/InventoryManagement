@@ -1,7 +1,5 @@
 ﻿using Inventory.Application.DTOs.Category;
 using Inventory.Application.Interfaces;
-using Inventory.Application.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Inventory.Api.Controllers
