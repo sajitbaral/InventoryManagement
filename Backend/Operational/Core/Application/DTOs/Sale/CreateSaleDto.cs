@@ -1,9 +1,6 @@
-﻿using Operational.Application.DTOs.Purchase;
-using Operational.Domain.Entities;
-using System;
-using System.Collections.Generic;
+﻿
 using System.ComponentModel.DataAnnotations;
-using System.Text;
+
 
 namespace Operational.Application.DTOs.Sale
 {

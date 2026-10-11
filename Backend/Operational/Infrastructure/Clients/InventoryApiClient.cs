@@ -1,10 +1,8 @@
-﻿using Azure;
+﻿
 using Operational.Application.DTOs.Inventory;
 using Operational.Application.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.Net.Http.Json;
-using System.Text;
+
 
 namespace Operational.Infrastructure.Clients
 {

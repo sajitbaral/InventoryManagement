@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Storage;
 using Operational.Application.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace Operational.Infrastructure.Persistence
 {

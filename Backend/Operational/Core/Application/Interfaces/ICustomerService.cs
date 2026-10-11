@@ -1,7 +1,4 @@
 ﻿using Operational.Application.DTOs.Customer;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Operational.Application.Interfaces
 {

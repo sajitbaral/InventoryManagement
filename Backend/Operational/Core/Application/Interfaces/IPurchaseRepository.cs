@@ -1,7 +1,5 @@
 ﻿using Operational.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace Operational.Application.Interfaces
 {

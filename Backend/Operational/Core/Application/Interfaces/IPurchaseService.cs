@@ -1,7 +1,5 @@
 ﻿using Operational.Application.DTOs.Purchase;
-using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace Operational.Application.Interfaces
 {

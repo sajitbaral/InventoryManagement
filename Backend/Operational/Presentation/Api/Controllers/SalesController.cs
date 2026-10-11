@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿
 using Microsoft.AspNetCore.Mvc;
 using Operational.Application.DTOs.Sale;
 using Operational.Application.Interfaces;

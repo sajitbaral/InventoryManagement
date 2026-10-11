@@ -2,9 +2,6 @@
 using Operational.Domain.Entities;
 using Operational.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Operational.Infrastructure.Repositories
 {
