@@ -99,7 +99,7 @@ namespace Operational.Application.Services
                 UpdatedAt = sale.UpdatedAt,
                 Items = sale.SaleItems.Select(si => new SaleItemResponseDto
                 {
-                    SaleItemId = si.ProductId,
+                    SaleItemId = si.SaleItemId,
                     ProductId = si.ProductId,
                     Quantity = si.Quantity,
                     UnitPrice = si.UnitPrice,
