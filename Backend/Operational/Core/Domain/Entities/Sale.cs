@@ -1,4 +1,6 @@
 ﻿
+using Operational.Domain.Enums;
+
 namespace Operational.Domain.Entities
 {
     public class Sale
@@ -15,5 +17,6 @@ namespace Operational.Domain.Entities
         public DateTime CreatedAt {  get; set; }
         public DateTime UpdatedAt { get; set; }
         public List<SaleItem> SaleItems { get; set; } = new();
+        public SaleStatus Status { get; set; } = SaleStatus.Pending;
     }
 }

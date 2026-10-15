@@ -20,6 +20,8 @@ namespace Operational.Infrastructure.Persistence
         public DbSet<Purchase> Purchases { get; set; }
 
         public DbSet<PurchaseItem> PurchaseItems { get; set; }
+        public DbSet<OutboxMessage> OutboxMessages =>
+            Set<OutboxMessage>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -119,6 +121,39 @@ namespace Operational.Infrastructure.Persistence
                 .WithMany(s => s.SaleItems)
                 .HasForeignKey(si => si.SaleId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<OutboxMessage>(entity =>
+            {
+                entity.HasKey(x => x.Id);
+
+                entity.Property(x => x.Type)
+                    .HasMaxLength(200)
+                    .IsRequired();
+
+                entity.Property(x => x.Payload)
+                    .IsRequired();
+
+                entity.Property(x => x.Status)
+                    .IsRequired();
+
+                entity.Property(x => x.CreatedAtUtc)
+                    .IsRequired();
+
+                entity.Property(x => x.NextAttemptAtUtc)
+                    .IsRequired();
+
+                entity.Property(x => x.LastError)
+                    .HasMaxLength(2000);
+
+                entity.HasIndex(x => new
+                {
+                    x.Status,
+                    x.NextAttemptAtUtc
+                });
+
+                entity.HasIndex(x => x.LockedUntilUtc);
+            });
+                
 
 
 
