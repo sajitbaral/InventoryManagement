@@ -1,8 +1,10 @@
 using Microsoft.EntityFrameworkCore;
+using Operational.Application.Abstractions.Messaging;
 using Operational.Application.Interfaces;
 using Operational.Application.Services;
 using Operational.Infrastructure.Clients;
 using Operational.Infrastructure.Persistence;
+using Operational.Infrastructure.Persistence.Outbox;
 using Operational.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,6 +24,8 @@ builder.Services.AddScoped<IPurchaseRepository, PurchaseRepository>();
 builder.Services.AddScoped<IPurchaseService, PurchaseService>();
 builder.Services.AddScoped<ISaleRepository, SaleRepository>();
 builder.Services.AddScoped<ISaleService,SaleService>();
+
+builder.Services.AddScoped<IOutboxWriter, EfOutboxWriter>();
 
 
 
