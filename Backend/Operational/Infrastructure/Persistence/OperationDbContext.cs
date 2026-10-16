@@ -20,8 +20,7 @@ namespace Operational.Infrastructure.Persistence
         public DbSet<Purchase> Purchases { get; set; }
 
         public DbSet<PurchaseItem> PurchaseItems { get; set; }
-        public DbSet<OutboxMessage> OutboxMessages =>
-            Set<OutboxMessage>();
+        public DbSet<OutboxMessage> OutboxMessages { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -131,6 +130,7 @@ namespace Operational.Infrastructure.Persistence
                     .IsRequired();
 
                 entity.Property(x => x.Payload)
+                    .HasColumnType("nvarchar(max)")
                     .IsRequired();
 
                 entity.Property(x => x.Status)
@@ -145,7 +145,7 @@ namespace Operational.Infrastructure.Persistence
                 entity.Property(x => x.LastError)
                     .HasMaxLength(2000);
 
-                entity.HasIndex(x => new
+                entity.HasIndex(x => new            //'new' creates one composite index containing both columns.
                 {
                     x.Status,
                     x.NextAttemptAtUtc

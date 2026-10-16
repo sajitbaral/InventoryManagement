@@ -145,6 +145,9 @@ namespace Operational.Infrastructure.Migrations
                     b.Property<DateTime>("SaleDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("TotalAmount")
                         .HasPrecision(12, 2)
                         .HasColumnType("decimal(12,2)");
@@ -232,6 +235,55 @@ namespace Operational.Infrastructure.Migrations
                     b.HasIndex("Name");
 
                     b.ToTable("Suppliers");
+                });
+
+            modelBuilder.Entity("Operational.Infrastructure.Persistence.OutboxMessage", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("AttemptCount")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastError")
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<Guid>("LockToken")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("LockedUntilUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("NextAttemptAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Payload")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ProcessedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LockedUntilUtc");
+
+                    b.HasIndex("Status", "NextAttemptAtUtc");
+
+                    b.ToTable("OutboxMessages");
                 });
 
             modelBuilder.Entity("Operational.Domain.Entities.Purchase", b =>

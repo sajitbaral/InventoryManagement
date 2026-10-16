@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Operational.Infrastructure.Persistence
+namespace Operational.Infrastructure.Persistence.Outbox
 {
     public enum OutboxMessageStatus
     {
