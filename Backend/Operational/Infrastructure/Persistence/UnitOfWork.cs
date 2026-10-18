@@ -15,6 +15,10 @@ namespace Operational.Infrastructure.Persistence
 
         public async Task BeginTransactionAsync(CancellationToken cancellationToken)
         {
+            if(_transaction != null)
+            {
+                throw new InvalidOperationException("A transaction is already active");
+            }
             _transaction = await _context.Database.BeginTransactionAsync(cancellationToken);
         }
 
@@ -27,7 +31,15 @@ namespace Operational.Infrastructure.Persistence
         {
             if (_transaction != null)
             {
-                await _transaction.CommitAsync(cancellationToken);
+                try
+                {
+                    await _transaction.CommitAsync(cancellationToken);
+                }
+                finally                                                                     //transaction should be disposed after use and made it to null.
+                {
+                    await _transaction.DisposeAsync();
+                    _transaction = null;
+                }
             }
         }
 
@@ -35,7 +47,15 @@ namespace Operational.Infrastructure.Persistence
         {
             if (_transaction != null)
             {
-                await _transaction.RollbackAsync(cancellationToken);
+                try
+                {
+                    await _transaction.RollbackAsync(cancellationToken);
+                }
+                finally
+                {
+                    await _transaction.DisposeAsync();
+                    _transaction= null;
+                }
             }
         }
     }
