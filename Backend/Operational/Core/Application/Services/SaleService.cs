@@ -1,7 +1,9 @@
-﻿using Operational.Application.DTOs.Inventory;
+﻿using Operational.Application.Abstractions.Messaging;
+using Operational.Application.DTOs.Inventory;
 using Operational.Application.DTOs.Sale;
 using Operational.Application.Interfaces;
 using Operational.Domain.Entities;
+using System.Text.Json;
 
 namespace Operational.Application.Services
 {
@@ -76,17 +78,27 @@ namespace Operational.Application.Services
 
             sale.TotalAmount = saleItems.Sum(si => si.SubTotal);
 
-            _saleRepository.Add(sale);
-            await _unitOfWork.SaveChangesAsync(cancellationToken);
-
-            foreach(var item in saleItems)
+            try
             {
-                await _inventoryClient.DecreaseStock(new DecreaseStockRequest
-                {
-                    ProductId = item.ProductId,
-                    Quantity = item.Quantity,
-                    ReferenceId = sale.SaleId
-                }, cancellationToken);
+
+                await _unitOfWork.BeginTransactionAsync(cancellationToken);
+
+                _saleRepository.Add(sale);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+
+                var message = new ReserveStockForSaleMessage(sale.SaleId, saleItems.Select(item => new ReserveStockForSaleItem
+                (
+                    item.ProductId,
+                    item.Quantity
+                ))
+                .ToList()
+                );
+
+                var payload = JsonSerializer.Serialize(message, new JsonSerializerOptions(JsonSerializerDefaults.Web));
+            }
+            catch
+            {
+                
             }
 
             return new SaleResponseDto
