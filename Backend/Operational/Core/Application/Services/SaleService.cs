@@ -13,14 +13,15 @@ namespace Operational.Application.Services
         private readonly ICustomerRepository _customerRepository;
         private readonly IInventoryClient _inventoryClient;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IOutboxWriter _outboxWriter;
 
-        public SaleService(ISaleRepository saleRepository, ICustomerRepository customerRepository, IInventoryClient inventoryClient, IUnitOfWork unitOfWork)
+        public SaleService(ISaleRepository saleRepository, ICustomerRepository customerRepository, IInventoryClient inventoryClient, IUnitOfWork unitOfWork, IOutboxWriter outboxWriter)
         {
             _saleRepository = saleRepository;
             _customerRepository = customerRepository;
             _inventoryClient = inventoryClient;
             _unitOfWork = unitOfWork;
-            
+            _outboxWriter = outboxWriter;
         }
 
         public async Task<SaleResponseDto> CreateSaleAsync(CreateSaleDto dto, CancellationToken cancellationToken)
@@ -95,9 +96,18 @@ namespace Operational.Application.Services
                 );
 
                 var payload = JsonSerializer.Serialize(message, new JsonSerializerOptions(JsonSerializerDefaults.Web));
+
+                var outboxDraft = new OutboxMessageDraft(OutboxMessageTypes.ReserveStockForSale, payload);
+                _outboxWriter.Add(outboxDraft);
+
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                await _unitOfWork.CommitTransactionAsync(cancellationToken);
+                
             }
             catch
             {
+                await _unitOfWork.RollbackTransactionAsync(CancellationToken.None);
+                throw;
                 
             }
 
