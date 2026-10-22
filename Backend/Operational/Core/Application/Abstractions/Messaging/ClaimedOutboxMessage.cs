@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace Operational.Application.Abstractions.Messaging
 {
     public record ClaimedOutboxMessage(
