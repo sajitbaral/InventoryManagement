@@ -26,7 +26,7 @@ builder.Services.AddScoped<ISaleRepository, SaleRepository>();
 builder.Services.AddScoped<ISaleService,SaleService>();
 
 builder.Services.AddScoped<IOutboxWriter, EfOutboxWriter>();
-
+builder.Services.AddHostedService<OutboxProcessor>();
 
 
 builder.Services.AddHttpClient<IInventoryClient, InventoryApiClient>(client =>
