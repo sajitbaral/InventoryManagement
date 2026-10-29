@@ -1,9 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Operational.Application.Abstractions.Messaging;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Operational.Infrastructure.Persistence.Outbox
 {

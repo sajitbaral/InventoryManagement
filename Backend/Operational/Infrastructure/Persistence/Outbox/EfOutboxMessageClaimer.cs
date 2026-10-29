@@ -1,11 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Operational.Application.Abstractions.Messaging;
-using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
-using System.Text;
-using System.Transactions;
+
 
 
 namespace Operational.Infrastructure.Persistence.Outbox
@@ -104,7 +101,7 @@ namespace Operational.Infrastructure.Persistence.Outbox
                     {
                         await transaction.RollbackAsync(CancellationToken.None);
                     }
-                    catch
+                    catch   //If rollback also fails then its error can hide the SQL error. So catch block is applied here .
                     {
                         // Preserve the original exception.
                     }
