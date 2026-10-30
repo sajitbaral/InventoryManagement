@@ -9,6 +9,9 @@ namespace Inventory.Application.DTOs.Stock
         [Range(1, int.MaxValue)]
         public int SaleId {  get; set; }
 
+
+        public Guid OperationId { get; set; }
+
         [MinLength(1)]
         public List<ReserveStockItemRequest> Items { get; set; } = new();
 

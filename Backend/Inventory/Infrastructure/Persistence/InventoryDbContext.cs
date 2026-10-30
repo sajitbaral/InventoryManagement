@@ -14,6 +14,7 @@ public class InventoryDbContext : DbContext
     public DbSet<Category> Categories { get; set; }
     public DbSet<Stock> Stocks { get; set; }
     public DbSet<StockMovement> StockMovements { get; set; }
+    public DbSet<ProcessedStockOperation> ProcessedStockOperations { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -52,6 +53,9 @@ public class InventoryDbContext : DbContext
             .WithMany()
             .HasForeignKey(sm=> sm.ProductId)
             .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<ProcessedStockOperation>()
+            .HasKey(x=>x.OperationId)
 
        
 
