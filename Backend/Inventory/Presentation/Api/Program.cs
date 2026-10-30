@@ -22,10 +22,13 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IStockMovementRepository, StockMovementRepository>();
 builder.Services.AddScoped<IStockMovementService, StockMovementService>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IProcessedStockOperationRepository, ProcessedStockOperationRepository>();
 
 builder.Services.AddDbContext<InventoryDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("InventoryDb")));
+
+
 
 var app = builder.Build();
 

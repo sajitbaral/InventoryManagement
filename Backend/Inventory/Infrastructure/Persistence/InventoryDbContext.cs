@@ -10,6 +10,7 @@ public class InventoryDbContext : DbContext
         
     }
 
+
     public DbSet<Product> Products { get; set; }
     public DbSet<Category> Categories { get; set; }
     public DbSet<Stock> Stocks { get; set; }
@@ -55,7 +56,7 @@ public class InventoryDbContext : DbContext
             .OnDelete(DeleteBehavior.Restrict);
 
         modelBuilder.Entity<ProcessedStockOperation>()
-            .HasKey(x=>x.OperationId)
+            .HasKey(x => x.OperationId);
 
        
 
