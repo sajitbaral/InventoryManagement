@@ -1,6 +1,7 @@
 ﻿using Inventory.Application.DTOs.Stock;
 using Inventory.Application.Interfaces;
 using Inventory.Domain.Entities;
+using Inventory.Domain.Enums;
 
 namespace Inventory.Application.Services
 {
@@ -9,12 +10,15 @@ namespace Inventory.Application.Services
         private readonly IStockRepository _stockRepository;
         private readonly IStockMovementRepository _stockMovementRepository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IProcessedStockOperationRepository _processedStockOperationRepository;
 
-        public StockService(IStockRepository stockRepository, IStockMovementRepository stockMovementRepository, IUnitOfWork unitOfWork)
+
+        public StockService(IStockRepository stockRepository, IStockMovementRepository stockMovementRepository, IProcessedStockOperationRepository processedStockOperationRepository, IUnitOfWork unitOfWork)
         {
             _stockRepository = stockRepository;
             _stockMovementRepository= stockMovementRepository;
             _unitOfWork= unitOfWork;
+            _processedStockOperationRepository= processedStockOperationRepository;
         }
 
         public async Task<List<StockResponseDto>> GetStocksAsync(CancellationToken cancellationToken)
@@ -246,6 +250,65 @@ namespace Inventory.Application.Services
                 Quantity = stock.Quantity,
                 LastUpdated = stock.LastUpdated
             };
+        }
+
+        public async Task ReserveStockForSaleAsync(ReserveStockForSaleRequest request,  CancellationToken cancellationToken)
+        {
+            var alreadyProcessed = await _processedStockOperationRepository.ExistsAsync(request.OperationId, cancellationToken);
+
+            if (alreadyProcessed)
+            {
+                return;
+            }
+
+            try
+            {
+                await _unitOfWork.BeginTransactionAsync(cancellationToken);
+
+                foreach(var item in request.Items)
+                {
+                    var stock = await _stockRepository.GetByProductIdAsync(item.ProductId, cancellationToken);
+
+                    if (stock == null)
+                    {
+                        throw new Exception(
+                            $"Stock for product {item.ProductId} was not found.");
+                    }
+
+                    if (stock.Quantity < item.Quantity)
+                    {
+                        throw new Exception(
+                            $"Insufficient stock for product {item.ProductId}.");
+                    }
+
+                    stock.Quantity -= item.Quantity;
+                    stock.LastUpdated = DateTime.UtcNow;
+
+                    _stockMovementRepository.Add(new StockMovement
+                    {
+                        ProductId = item.ProductId,
+                        MovementType = MovementType.Sale,
+                        Quantity = item.Quantity,
+                        MovementDate = DateTime.UtcNow,
+                        ReferenceId = request.SaleId
+                    });
+                }
+
+                _processedStockOperationRepository.Add(new ProcessedStockOperation
+                {
+                    OperationId = request.OperationId,
+                    SaleId = request.SaleId,
+                });
+
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                await _unitOfWork.CommitTransactionAsync(cancellationToken);
+            }
+
+            catch
+            {
+                await _unitOfWork.RollbackTransactionAsync(CancellationToken.None);
+                throw;
+            }
         }
     }
 }
