@@ -265,7 +265,19 @@ namespace Inventory.Application.Services
             {
                 await _unitOfWork.BeginTransactionAsync(cancellationToken);
 
-                foreach(var item in request.Items)
+                var operationAdded = await _processedStockOperationRepository.TryAddAsync(new ProcessedStockOperation          /*This method is first Because OperationId is the primary key, SQL Server won't allow two requests to claim the same operation. This eliminates two identical requests both start deducting stock before either records the operation.*/
+                {
+                    OperationId = request.OperationId,
+                    SaleId = request.SaleId,
+                }, cancellationToken);
+
+                if (!operationAdded)
+                {
+                    await _unitOfWork.RollbackTransactionAsync(CancellationToken.None);
+                    return;
+                }
+
+                foreach (var item in request.Items)
                 {
                     var stock = await _stockRepository.GetByProductIdAsync(item.ProductId, cancellationToken);
 
@@ -293,12 +305,6 @@ namespace Inventory.Application.Services
                         ReferenceId = request.SaleId
                     });
                 }
-
-                _processedStockOperationRepository.Add(new ProcessedStockOperation
-                {
-                    OperationId = request.OperationId,
-                    SaleId = request.SaleId,
-                });
 
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 await _unitOfWork.CommitTransactionAsync(cancellationToken);

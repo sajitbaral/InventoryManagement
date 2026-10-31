@@ -8,6 +8,6 @@ namespace Inventory.Application.Interfaces
     public interface IProcessedStockOperationRepository
     {
         Task<bool> ExistsAsync(Guid operationId, CancellationToken cancellationToken);
-        void Add(ProcessedStockOperation operation);
+        Task<bool> TryAddAsync(ProcessedStockOperation operation, CancellationToken cancellationToken);
     }
 }
