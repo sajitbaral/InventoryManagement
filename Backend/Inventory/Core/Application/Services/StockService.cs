@@ -254,6 +254,19 @@ namespace Inventory.Application.Services
 
         public async Task ReserveStockForSaleAsync(ReserveStockForSaleRequest request,  CancellationToken cancellationToken)
         {
+            if (request.Items                           /*This checks whether there is Duplicate product IDsor not in saleitems.*/
+                .Select(x => x.ProductId)
+                .Distinct()
+                .Count() != request.Items.Count)
+            {
+                throw new ArgumentException("Duplicate product IDs are not allowed.");
+            }
+
+            if (request.OperationId == Guid.Empty)
+            {
+                throw new ArgumentException("Operation ID cannot be empty.");
+            }
+
             var alreadyProcessed = await _processedStockOperationRepository.ExistsAsync(request.OperationId, cancellationToken);
 
             if (alreadyProcessed)

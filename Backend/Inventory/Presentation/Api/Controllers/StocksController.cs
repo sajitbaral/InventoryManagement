@@ -75,5 +75,15 @@ namespace Inventory.Api.Controllers
             var stock = await _stockService.AdjustmentStockAsync(dto, cancellationToken);
             return Ok(stock);
         }
+
+        [HttpPost("reserve-for-sale")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> ReserveStockForSale(ReserveStockForSaleRequest request, CancellationToken cancellationToken)
+        {
+            await _stockService.ReserveStockForSaleAsync(request, cancellationToken);
+
+            return NoContent();
+        }
     }
 }
