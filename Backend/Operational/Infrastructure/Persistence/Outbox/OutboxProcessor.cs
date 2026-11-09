@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Operational.Application.Abstractions.Messaging;
+using Operational.Application.DTOs.Inventory;
+using System.Text.Json;
 
 namespace Operational.Infrastructure.Persistence.Outbox
 {
@@ -26,7 +28,22 @@ namespace Operational.Infrastructure.Persistence.Outbox
                     {
                         if(message.Type == OutboxMessageTypes.ReserveStockForSale)
                         {
+                            var saleMessage = JsonSerializer.Deserialize<ReserveStockForSaleMessage>(
+                                message.Payload,
+                                new JsonSerializerOptions(JsonSerializerDefaults.Web))
+                                ?? throw new InvalidOperationException("Invalid stock reservation message.");
 
+                            var request = new ReserveStockForSaleRequest
+                            {
+                                SaleId = saleMessage.saleId,
+                                OperationId = message.Id,
+                                Items = saleMessage.Items.Select(item=> new ReserveStockItemRequest
+                                {
+                                    ProductId = item.ProductId,
+                                    Quantity = item.Quantity
+                                }).ToList()
+                            };
+                                
                         }
                     }
                 }    
