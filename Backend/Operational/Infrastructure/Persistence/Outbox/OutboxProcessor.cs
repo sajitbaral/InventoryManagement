@@ -2,7 +2,9 @@
 using Microsoft.Extensions.Hosting;
 using Operational.Application.Abstractions.Messaging;
 using Operational.Application.DTOs.Inventory;
+using Operational.Infrastructure.Clients;
 using System.Text.Json;
+using Operational.Application.Interfaces;
 
 namespace Operational.Infrastructure.Persistence.Outbox
 {
@@ -21,7 +23,11 @@ namespace Operational.Infrastructure.Persistence.Outbox
                 using (var scope = _scopeFactory.CreateScope())  //CreateScope() creates a temporary scope.
                 {
                     var claimer = scope.ServiceProvider.GetRequiredService<IOutboxMessageClaimer>();  //ServiceProvider comes from CreateScope(). The .NET dependency injection system provides it. ServiceProvider gives us access to registered services. GetRequiredService<T>() asks for a specific service.
-                
+                    
+                    var inventoryClient = scope.ServiceProvider.GetRequiredService<IInventoryClient>();
+
+                    var updater = scope.ServiceProvider.GetRequiredService<IOutboxMessageUpdater>();
+
                     var message = await claimer.ClaimNextAsync(cancellationToken);
 
                     if (message != null)
@@ -43,6 +49,11 @@ namespace Operational.Infrastructure.Persistence.Outbox
                                     Quantity = item.Quantity
                                 }).ToList()
                             };
+
+                            await inventoryClient.ReserveStockForSale(request, cancellationToken);
+
+                            var markedAsProcessed = await updater.MarkAsProcessedAsync(message.Id, message.LockToken, cancellationToken);
+                           
                                 
                         }
                     }
