@@ -254,7 +254,7 @@ namespace Inventory.Application.Services
 
         public async Task ReserveStockForSaleAsync(ReserveStockForSaleRequest request,  CancellationToken cancellationToken)
         {
-            if (request.Items                           /*This checks whether there is Duplicate product IDsor not in saleitems.*/
+            if (request.Items                           /*This checks whether there is Duplicate product IDs or not in saleitems.*/
                 .Select(x => x.ProductId)
                 .Distinct()
                 .Count() != request.Items.Count)
