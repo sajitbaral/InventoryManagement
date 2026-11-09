@@ -8,5 +8,6 @@
             Task<ProductInfoResponse?> GetProduct(GetProductRequest request, CancellationToken cancellationToken);
             Task IncreaseStock(IncreaseStockRequest request, CancellationToken cancellationToken);
             Task DecreaseStock(DecreaseStockRequest request, CancellationToken cancellationToken);
+            Task ReserveStockForSale(ReserveStockForSaleRequest request, CancellationToken cancellationToken);
         }
     }
