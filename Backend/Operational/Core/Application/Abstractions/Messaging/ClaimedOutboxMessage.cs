@@ -5,6 +5,7 @@ namespace Operational.Application.Abstractions.Messaging
         Guid Id, 
         string Type, 
         string Payload, 
-        Guid LockToken);
+        Guid LockToken,
+        int AttemptCount);
    
 }

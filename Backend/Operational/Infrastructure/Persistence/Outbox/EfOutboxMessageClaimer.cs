@@ -65,7 +65,8 @@ namespace Operational.Infrastructure.Persistence.Outbox
                             INSERTED.Id,
                             INSERTED.Type,
                             INSERTED.Payload,
-                            INSERTED.LockToken;
+                            INSERTED.LockToken,
+                            INSERTED.AttemptCount;
 
                         """;
 
@@ -87,7 +88,8 @@ namespace Operational.Infrastructure.Persistence.Outbox
                                 reader.GetGuid(0),
                                 reader.GetString(1),
                                 reader.GetString(2),
-                                reader.GetGuid(3)
+                                reader.GetGuid(3),
+                                reader.GetInt32(4)
                                 );
                         }
                     }

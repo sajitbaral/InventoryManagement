@@ -32,29 +32,57 @@ namespace Operational.Infrastructure.Persistence.Outbox
 
                     if (message != null)
                     {
-                        if(message.Type == OutboxMessageTypes.ReserveStockForSale)
+                        try
                         {
-                            var saleMessage = JsonSerializer.Deserialize<ReserveStockForSaleMessage>(
-                                message.Payload,
-                                new JsonSerializerOptions(JsonSerializerDefaults.Web))
-                                ?? throw new InvalidOperationException("Invalid stock reservation message.");
-
-                            var request = new ReserveStockForSaleRequest
+                            if (message.Type == OutboxMessageTypes.ReserveStockForSale)
                             {
-                                SaleId = saleMessage.saleId,
-                                OperationId = message.Id,
-                                Items = saleMessage.Items.Select(item=> new ReserveStockItemRequest
+                                var saleMessage = JsonSerializer.Deserialize<ReserveStockForSaleMessage>(
+                                    message.Payload,
+                                    new JsonSerializerOptions(JsonSerializerDefaults.Web))
+                                    ?? throw new InvalidOperationException("Invalid stock reservation message.");
+
+                                var request = new ReserveStockForSaleRequest
                                 {
-                                    ProductId = item.ProductId,
-                                    Quantity = item.Quantity
-                                }).ToList()
-                            };
+                                    SaleId = saleMessage.saleId,
+                                    OperationId = message.Id,
+                                    Items = saleMessage.Items.Select(item => new ReserveStockItemRequest
+                                    {
+                                        ProductId = item.ProductId,
+                                        Quantity = item.Quantity
+                                    }).ToList()
+                                };
 
-                            await inventoryClient.ReserveStockForSale(request, cancellationToken);
+                                await inventoryClient.ReserveStockForSale(request, cancellationToken);
 
-                            var markedAsProcessed = await updater.MarkAsProcessedAsync(message.Id, message.LockToken, cancellationToken);
-                           
-                                
+                                await updater.MarkAsProcessedAsync(
+                                    message.Id,
+                                    message.LockToken,
+                                    cancellationToken);
+                            }
+                            else
+                            {
+                                throw new InvalidOperationException(
+                                    $"Unsupported outbox message type: {message.Type}");
+                            }
+                        }
+                        catch (OperationCanceledException) when (cancellationToken.IsCancellationRequested)
+                        {
+                            throw;
+                        }
+                        catch (Exception ex)
+                        {
+                            var retryDelaySeconds = Math.Min(
+                                5 * Math.Pow(2, message.AttemptCount), 300);
+
+                            var nextAttemptAtUtc = DateTime.UtcNow.AddSeconds(retryDelaySeconds);
+
+                            await updater.MarkAsFailedAsync(
+                                message.Id,
+                                message.LockToken,
+                                ex.Message,
+                                nextAttemptAtUtc,
+                                5,
+                                cancellationToken);
                         }
                     }
                 }    
