@@ -26,6 +26,7 @@ builder.Services.AddScoped<ISaleRepository, SaleRepository>();
 builder.Services.AddScoped<ISaleService,SaleService>();
 
 builder.Services.AddScoped<IOutboxWriter, EfOutboxWriter>();
+builder.Services.AddScoped<IOutboxMessageClaimer, EfOutboxMessageClaimer>();
 builder.Services.AddHostedService<OutboxProcessor>();
 builder.Services.AddScoped<IOutboxMessageUpdater, EfOutboxMessageUpdater>();
 
